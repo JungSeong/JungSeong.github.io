@@ -1,0 +1,137 @@
+---
+layout: page
+title: Projects
+subtitle: 진행했거나 진행 중인 프로젝트 목록
+---
+
+<style>
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1.4rem 1.6rem;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.project-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+}
+
+.project-card .project-tags {
+  margin: 0.6rem 0;
+}
+
+.project-card .tag {
+  display: inline-block;
+  background: #e8f0fe;
+  color: #1a56db;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  margin: 2px 3px 2px 0;
+}
+
+.project-card p {
+  font-size: 0.92rem;
+  color: #555;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+.project-card .project-links a {
+  font-size: 0.85rem;
+  margin-right: 0.8rem;
+  color: #008AFF;
+  text-decoration: none;
+}
+
+.project-card .project-links a:hover {
+  text-decoration: underline;
+}
+
+.project-status {
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 2px 8px;
+  float: right;
+}
+
+.status-done   { background: #d1fae5; color: #065f46; }
+.status-wip    { background: #fef3c7; color: #92400e; }
+.status-plan   { background: #ede9fe; color: #5b21b6; }
+</style>
+
+<div class="project-grid">
+
+  <!-- 프로젝트 카드 예시 1 -->
+  <div class="project-card">
+    <span class="project-status status-wip">진행 중</span>
+    <h3>🤖 AI for Industry Challenge</h3>
+    <div class="project-tags">
+      <span class="tag">Python</span>
+      <span class="tag">PyTorch</span>
+      <span class="tag">CV</span>
+    </div>
+    <p>산업 현장의 AI 고도화를 주제로 한 대회 참가 프로젝트. 이미지 분류 및 이상 탐지 모델 개발.</p>
+    <div class="project-links">
+      <a href="https://github.com/JungSeong" target="_blank">🔗 GitHub</a>
+    </div>
+  </div>
+
+  <!-- 프로젝트 카드 예시 2 -->
+  <div class="project-card">
+    <span class="project-status status-wip">진행 중</span>
+    <h3>📊 Dacon Competition</h3>
+    <div class="project-tags">
+      <span class="tag">Python</span>
+      <span class="tag">LLM</span>
+      <span class="tag">NLP</span>
+    </div>
+    <p>데이콘 AI 대회 참가. LLM 파인튜닝 및 RAG 파이프라인 구축을 중심으로 진행.</p>
+    <div class="project-links">
+      <a href="https://github.com/JungSeong" target="_blank">🔗 GitHub</a>
+    </div>
+  </div>
+
+  <!-- 프로젝트 카드 템플릿 (새 프로젝트 추가 시 복사) -->
+  <!--
+  <div class="project-card">
+    <span class="project-status status-plan">계획</span>
+    <h3>프로젝트 제목</h3>
+    <div class="project-tags">
+      <span class="tag">태그1</span>
+      <span class="tag">태그2</span>
+    </div>
+    <p>프로젝트 설명을 여기에 작성합니다.</p>
+    <div class="project-links">
+      <a href="#">🔗 GitHub</a>
+      <a href="#">📄 Report</a>
+    </div>
+  </div>
+  -->
+
+</div>
+
+<br>
+<p style="font-size:0.85rem; color:#999;">
+  상태:
+  <span style="background:#d1fae5; color:#065f46; border-radius:4px; padding:1px 7px; font-size:0.75rem; font-weight:bold;">완료</span>
+  <span style="background:#fef3c7; color:#92400e; border-radius:4px; padding:1px 7px; font-size:0.75rem; font-weight:bold; margin-left:4px;">진행 중</span>
+  <span style="background:#ede9fe; color:#5b21b6; border-radius:4px; padding:1px 7px; font-size:0.75rem; font-weight:bold; margin-left:4px;">계획</span>
+</p>

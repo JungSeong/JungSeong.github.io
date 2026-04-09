@@ -11,3 +11,11 @@ ehthumbs.db
 Gemfile.lock
 
 beautiful-jekyll-theme-*.gem
+
+# Claude Setup
+ABOUT-ME/
+CLAUDE-OUTPUTS/
+TEMPLATES/
+Claude.md
+
+CV/Awesome-PhD-CV

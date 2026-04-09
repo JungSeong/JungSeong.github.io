@@ -1,16 +1,37 @@
 ---
 layout: page
-title: About me
-subtitle: Why you'd want to go on a date with me
+title: About Me
+subtitle: AI/ML Engineer · CV · LLM · Robotics
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+## 👤 소개
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+안녕하세요! **장성원(SeongWon Jang)**입니다.
 
-What else do you need?
+Computer Vision, LLM 분야에서 다수의 프로젝트를 수행하였으며,
+현재는 데이콘, AI for Industry Challenge 등 AI 고도화 대회에 참가 중입니다.
 
-### My story
+강화학습(RL) 기술에 관심을 가지고, **SLAM 기반 Robotics 분야**로의 진출을 목표로 하고 있습니다.
+1년 내 관련 분야 연구 개발 및 취업으로 나아가고자 합니다.
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+---
+
+## 🛠 Tech Stack
+
+| 분류 | 기술 |
+|------|------|
+| **Language** | Python, C, C++, CUDA |
+| **Library / Framework** | PyTorch, TensorFlow, wandB, vLLM, DeepSpeed, MCP, LangChain, OpenCV |
+| **Middleware** | ROS2 |
+| **Database** | MySQL, PostgreSQL |
+| **DevOps** | Docker |
+| **SCM** | Git |
+| **OS** | Linux |
+| **Collaboration** | Jira, Confluence, Slack, Notion |
+
+---
+
+## 🔗 Contact
+
+- **GitHub**: [github.com/JungSeong](https://github.com/JungSeong)
+- **Email**: jungseonglian@gmail.com

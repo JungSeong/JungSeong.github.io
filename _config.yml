@@ -10,7 +10,7 @@
 ############################
 
 # Name of website
-title: My website
+title: JungSeong
 
 # Your name to show in the footer
 author: SEONGWON JANG
@@ -21,10 +21,8 @@ author: SEONGWON JANG
 
 navbar-links:
   About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
+  POST LISTS: "posts"
+  PROJECTS: "projects"
 
 ################
 # --- Logo --- #
@@ -51,9 +49,10 @@ round-avatar: true
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
   email: "jungseonglian@gmail.com"
-  rss: false  # remove this line if you don't want to show an RSS link at the bottom
- # facebook: deanattali
+  #  discord: "invite_code" or "users/userid" or "invite/invite_code"
   github: JungSeong
+  kaggle: JungSeong2
+  # facebook: deanattali
  # twitter: daattali
  # patreon: DeanAttali
  # youtube: "@daattali"
@@ -76,8 +75,6 @@ social-network-links:
 #  bluesky: yourname
 #  ORCID: your ORCID ID
 #  google-scholar: your google scholar
-#  discord: "invite_code" or "users/userid" or "invite/invite_code"
-#  kaggle: yourname
 #  hackerrank: yourname
 #  gitlab: yourname
 #  itchio: yourname
