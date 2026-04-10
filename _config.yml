@@ -20,8 +20,13 @@ author: SEONGWON JANG
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
-  POST LISTS: "posts"
+  POST LISTS:
+    - All Posts: "posts"
+    - OS: "posts/Ubuntu"
+    - AI: "posts/CV"
+    - Robotics: "posts/ROS2"
+  ALGORITHM: "algorithm"
+  CONTESTS: "contests"
   PROJECTS: "projects"
 
 ################
@@ -49,9 +54,10 @@ round-avatar: true
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
   email: "jungseonglian@gmail.com"
-  #  discord: "invite_code" or "users/userid" or "invite/invite_code"
+  #discord: "invite_code" or "users/userid" or "invite/invite_code"
   github: JungSeong
   kaggle: JungSeong2
+  linkedin: seongwonjang
   # facebook: deanattali
  # twitter: daattali
  # patreon: DeanAttali
@@ -59,7 +65,6 @@ social-network-links:
  # whatsapp: 15551212
 #  medium: yourname
 #  reddit: yourname or r/yoursubreddit
-#  linkedin: daattali
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
