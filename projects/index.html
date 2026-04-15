@@ -1,137 +1,557 @@
 ---
 layout: page
 title: Projects
-subtitle: 진행했거나 진행 중인 프로젝트 목록
+subtitle: A collection of projects I have completed or am currently working on
 ---
 
 <style>
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
+  /* ── Section Title ───────────────────── */
+  .project-section-title {
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #888;
+    margin: 2.2rem 0 0.6rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid #e8e8e8;
+  }
 
-.project-card {
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  padding: 1.4rem 1.6rem;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
+  /* ── Grid & Card ──────────────────────── */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 0.8rem;
+  }
 
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-}
+  .project-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1.4rem 1.6rem;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
 
-.project-card h3 {
-  margin-top: 0;
-  margin-bottom: 0.4rem;
-  font-size: 1.1rem;
-}
+  .card-face {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
 
-.project-card .project-tags {
-  margin: 0.6rem 0;
-}
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  }
 
-.project-card .tag {
-  display: inline-block;
-  background: #e8f0fe;
-  color: #1a56db;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  padding: 2px 8px;
-  margin: 2px 3px 2px 0;
-}
+  .project-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.3rem;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    padding-right: 3.5rem;
+  }
 
-.project-card p {
-  font-size: 0.92rem;
-  color: #555;
-  margin-bottom: 0.8rem;
-  line-height: 1.5;
-}
+  .project-meta {
+    font-size: 0.78rem;
+    color: #999;
+    margin-bottom: 0.5rem;
+  }
 
-.project-card .project-links a {
-  font-size: 0.85rem;
-  margin-right: 0.8rem;
-  color: #008AFF;
-  text-decoration: none;
-}
+  .project-tags {
+    margin: 0.6rem 0;
+  }
 
-.project-card .project-links a:hover {
-  text-decoration: underline;
-}
+  .tag {
+    display: inline-block;
+    background: #e8f0fe;
+    color: #1a56db;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    margin: 2px 3px 2px 0;
+  }
 
-.project-status {
-  font-size: 0.75rem;
-  font-weight: bold;
-  border-radius: 4px;
-  padding: 2px 8px;
-  float: right;
-}
+  .card-summary {
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.55;
+    flex: 1;
+    margin-bottom: 0;
+  }
 
-.status-done   { background: #d1fae5; color: #065f46; }
-.status-wip    { background: #fef3c7; color: #92400e; }
-.status-plan   { background: #ede9fe; color: #5b21b6; }
+  .card-cta {
+    font-size: 0.8rem;
+    color: #008AFF;
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+
+  .project-status {
+    font-size: 0.72rem;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 2px 8px;
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+  }
+
+  .status-done {
+    background: #d1fae5;
+    color: #065f46;
+  }
+
+  .status-inprogress {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  .status-planned {
+    background: #ede9fe;
+    color: #5b21b6;
+  }
+
+  .award-badge {
+    font-size: 0.72rem;
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffc107;
+    border-radius: 4px;
+    padding: 1px 7px;
+    margin-left: 4px;
+    font-weight: 600;
+    vertical-align: middle;
+  }
+
+  /* ── Contests Link Banner ─────────────── */
+  .contests-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f0f7ff;
+    border: 1px solid #c7dff7;
+    border-radius: 10px;
+    padding: 1rem 1.4rem;
+    margin-top: 2rem;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .contests-banner:hover {
+    background: #e0efff;
+    text-decoration: none;
+  }
+
+  .contests-banner-left h4 {
+    margin: 0 0 0.2rem;
+    font-size: 1rem;
+    color: #1a56db;
+  }
+
+  .contests-banner-left p {
+    margin: 0;
+    font-size: 0.84rem;
+    color: #555;
+  }
+
+  .contests-banner-arrow {
+    font-size: 1.4rem;
+    color: #1a56db;
+    margin-left: 1rem;
+  }
+
+  /* ── Modal ──────────────────────────────── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .modal-overlay.active {
+    display: flex;
+  }
+
+  .modal-box {
+    background: #fff;
+    border-radius: 12px;
+    max-width: 660px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 2rem 2.2rem;
+    position: relative;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    animation: modalIn 0.2s ease;
+  }
+
+  @keyframes modalIn {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #888;
+    line-height: 1;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .modal-close:hover {
+    color: #333;
+  }
+
+  .modal-image-wrap {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.2rem;
+    max-height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .modal-image-wrap.no-image {
+    display: none;
+  }
+
+  #modal-title {
+    font-size: 1.2rem;
+    margin: 0.4rem 0 0.3rem;
+    line-height: 1.4;
+  }
+
+  #modal-meta {
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 0.6rem;
+  }
+
+  #modal-tags {
+    margin-bottom: 1rem;
+  }
+
+  #modal-details ul {
+    margin: 0 0 1rem 0;
+    padding-left: 1.3rem;
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.7;
+  }
+
+  .modal-links {
+    margin-top: 1rem;
+  }
+
+  .modal-links a {
+    font-size: 0.88rem;
+    color: #008AFF;
+    text-decoration: none;
+    margin-right: 1rem;
+    font-weight: 500;
+  }
+
+  .modal-links a:hover {
+    text-decoration: underline;
+  }
+
+  /* ── Legend ──────────────────────────────── */
+  .legend {
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 2.5rem;
+  }
+
+  .legend span {
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-left: 4px;
+  }
 </style>
 
+<!-- ── Modal ─────────────────────────────── -->
+<div id="project-modal" class="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modal-image-wrap" class="modal-image-wrap no-image">
+      <img id="modal-image" src="" alt="Project image"
+        onerror="document.getElementById('modal-image-wrap').classList.add('no-image')">
+    </div>
+    <div id="modal-status"></div>
+    <h2 id="modal-title"></h2>
+    <div id="modal-meta"></div>
+    <div id="modal-tags"></div>
+    <div id="modal-details"></div>
+    <div class="modal-links">
+      <a id="modal-github" href="#" target="_blank">🔗 GitHub</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── Major Projects ─────────────────────── -->
+<div class="project-section-title">Major Projects</div>
 <div class="project-grid">
 
-  <!-- 프로젝트 카드 예시 1 -->
-  <div class="project-card">
-    <span class="project-status status-wip">진행 중</span>
-    <h3>🤖 AI for Industry Challenge</h3>
-    <div class="project-tags">
-      <span class="tag">Python</span>
-      <span class="tag">PyTorch</span>
-      <span class="tag">CV</span>
+  <div class="project-card" data-github="https://github.com/JungSeong/Advanced-QA-Chatbot-for-Public-Offices"
+    data-image="/img/projects/chatbot.jpg" onclick="openModal(this)">
+    <span class="project-status status-done">Done</span>
+    <div class="card-face">
+      <h3>Advanced Q&A Chatbot System for Public Offices</h3>
+      <div class="project-meta">Jan. 2026 – Mar. 2026</div>
+      <div class="project-tags">
+        <span class="tag">LLM</span>
+        <span class="tag">vLLM</span>
+        <span class="tag">DeepSpeed</span>
+        <span class="tag">LoRA</span>
+        <span class="tag">Docker</span>
+        <span class="tag">MCP</span>
+      </div>
+      <p class="card-summary">LLM-based Q&A system fine-tuned for public office inquiries</p>
+      <div class="card-cta">View Details →</div>
     </div>
-    <p>산업 현장의 AI 고도화를 주제로 한 대회 참가 프로젝트. 이미지 분류 및 이상 탐지 모델 개발.</p>
-    <div class="project-links">
-      <a href="https://github.com/JungSeong" target="_blank">🔗 GitHub</a>
+    <div class="card-details" hidden>
+      <ul>
+        <li>Accelerated inference and training using vLLM and DeepSpeed.</li>
+        <li>Containerized the system with Docker Compose; integrated MCP for accessibility.</li>
+        <li>Constructed high-quality synthetic Q&A datasets via Chain-of-Thought (CoT) prompting and DeepEval
+          Synthesizer to secure golden datasets for fine-tuning.</li>
+        <li>Applied SFT with LoRA to improve instruction-following performance.</li>
+        <li>Deployed trained adapters and tokenizers to HuggingFace Hub.</li>
+      </ul>
     </div>
   </div>
 
-  <!-- 프로젝트 카드 예시 2 -->
-  <div class="project-card">
-    <span class="project-status status-wip">진행 중</span>
-    <h3>📊 Dacon Competition</h3>
-    <div class="project-tags">
-      <span class="tag">Python</span>
-      <span class="tag">LLM</span>
-      <span class="tag">NLP</span>
+  <div class="project-card" data-github="https://github.com/addinedu-roscamp-4th/roscamp-repo-2"
+    data-image="/img/projects/robodine.png" onclick="openModal(this)">
+    <span class="project-status status-done">Done</span>
+    <div class="card-face">
+      <h3>RoboDine: AI-Based Robotic Restaurant Automation Platform</h3>
+      <div class="project-meta">Apr. 2025 – Jun. 2025</div>
+      <div class="project-tags">
+        <span class="tag">ROS2</span>
+        <span class="tag">YOLO</span>
+        <span class="tag">OpenCV</span>
+        <span class="tag">Mediapipe</span>
+      </div>
+      <p class="card-summary">Restaurant robot platform covering arm grasping, and obstacle avoidance.</p>
+      <div class="card-cta">View Details →</div>
     </div>
-    <p>데이콘 AI 대회 참가. LLM 파인튜닝 및 RAG 파이프라인 구축을 중심으로 진행.</p>
-    <div class="project-links">
-      <a href="https://github.com/JungSeong" target="_blank">🔗 GitHub</a>
-    </div>
-  </div>
-
-  <!-- 프로젝트 카드 템플릿 (새 프로젝트 추가 시 복사) -->
-  <!--
-  <div class="project-card">
-    <span class="project-status status-plan">계획</span>
-    <h3>프로젝트 제목</h3>
-    <div class="project-tags">
-      <span class="tag">태그1</span>
-      <span class="tag">태그2</span>
-    </div>
-    <p>프로젝트 설명을 여기에 작성합니다.</p>
-    <div class="project-links">
-      <a href="#">🔗 GitHub</a>
-      <a href="#">📄 Report</a>
+    <div class="card-details" hidden>
+      <ul>
+        <li>Refined 6-DoF pose estimation using YOLO-v8-pose (Dropout + Pose Loss tuning) and 5-frame moving average;
+          applied solvePnP for full 6-DoF recovery.</li>
+        <li>Implemented foreign object detection via Hough Circle Transform and DBSCAN clustering.</li>
+        <li>Built obstacle classification and avoidance pipeline using Mediapipe; published obstacle type, LiDAR
+          distance, and robot ID as ROS2 topics.</li>
+        <li>Practiced Agile development with Git, Jira, and Confluence in a team of 6.</li>
+      </ul>
     </div>
   </div>
-  -->
 
 </div>
 
-<br>
-<p style="font-size:0.85rem; color:#999;">
-  상태:
-  <span style="background:#d1fae5; color:#065f46; border-radius:4px; padding:1px 7px; font-size:0.75rem; font-weight:bold;">완료</span>
-  <span style="background:#fef3c7; color:#92400e; border-radius:4px; padding:1px 7px; font-size:0.75rem; font-weight:bold; margin-left:4px;">진행 중</span>
-  <span style="background:#ede9fe; color:#5b21b6; border-radius:4px; padding:1px 7px; font-size:0.75rem; font-weight:bold; margin-left:4px;">계획</span>
-</p>
+<!-- ── Minor Projects ────────────────────── -->
+<div class="project-section-title">Minor Projects</div>
+<div class="project-grid">
+
+  <div class="project-card" data-github="https://github.com/JungSeong/Pintos" data-image="/img/projects/pintos.jpg"
+    onclick="openModal(this)">
+    <span class="project-status status-planned">Planned</span>
+    <div class="card-face">
+      <h3>Practice Pintos</h3>
+      <div class="project-meta">Apr. 2026 – Present</div>
+      <div class="project-tags">
+        <span class="tag">C</span>
+        <span class="tag">OS</span>
+        <span class="tag">Systems Programming</span>
+      </div>
+      <p class="card-summary">Implementing Stanford University's Pintos to deepen understanding of OS internals.</p>
+      <div class="card-cta">View Details →</div>
+    </div>
+    <div class="card-details" hidden>
+      <ul>
+        <li>Practicing Stanford University's Pintos project to understand OS internals including thread scheduling,
+          virtual memory, and file systems.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-card" data-github="https://github.com/JungSeong/Robo" data-image="/img/projects/robo.jpg"
+    onclick="openModal(this)">
+    <span class="project-status status-done">Done</span>
+    <div class="card-face">
+      <h3>Robo – Household Companion</h3>
+      <div class="project-meta">Mar. 2025 – May. 2025</div>
+      <div class="project-tags">
+        <span class="tag">Raspberry Pi 4</span>
+        <span class="tag">Gemini API</span>
+        <span class="tag">Python</span>
+      </div>
+      <p class="card-summary">Human–robot interactive home companion on Raspberry Pi 4 using multi-sensors.</p>
+      <div class="card-cta">View Details →</div>
+    </div>
+    <div class="card-details" hidden>
+      <ul>
+        <li>Developed a human–robot interactive home companion on Raspberry Pi 4; integrated microphone and touch
+          sensors with the Gemini API for user intent recognition and action execution.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-card" data-github="https://github.com/JungSeong/Research-Program"
+    data-image="/img/projects/detector.jpg" onclick="openModal(this)">
+    <span class="project-status status-done">Done</span>
+    <div class="card-face">
+      <h3>One-Stage Object Detector from Scratch</h3>
+      <div class="project-meta">Mar. 2025 – Jun. 2025</div>
+      <div class="project-tags">
+        <span class="tag">TensorFlow</span>
+        <span class="tag">Keras</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">Pascal VOC</span>
+      </div>
+      <p class="card-summary">Built a One-Stage Detector from scratch; trained and evaluated on Pascal VOC 2012.</p>
+      <div class="card-cta">View Details →</div>
+    </div>
+    <div class="card-details" hidden>
+      <ul>
+        <li>Implemented a One-Stage Detector model from scratch using TensorFlow and PyTorch.</li>
+        <li>Trained and evaluated on the Pascal VOC 2012 dataset.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-card" data-github="https://github.com/JungSeong/AIBAK" data-image="/img/projects/aibak.jpg"
+    onclick="openModal(this)">
+    <span class="project-status status-done">Done</span>
+    <div class="card-face">
+      <h3>AIBAK: AI-Based Children's Book Kiosk Service</h3>
+      <h3><span class="award-badge">Excellence Prize</span></h3>
+      <div class="project-meta">Sep. 2024 – Dec. 2024</div>
+      <div class="project-tags">
+        <span class="tag">GPT-4o-mini</span>
+        <span class="tag">LangChain</span>
+        <span class="tag">ElevenLabs</span>
+      </div>
+      <p class="card-summary">AI-driven children's book kiosk with story generation and TTS narration. Excellence Prize
+        at In-Jeju IoT Challenge.</p>
+      <div class="card-cta">View Details →</div>
+    </div>
+    <div class="card-details" hidden>
+      <ul>
+        <li>Implemented AI-driven story and title generation using ChatGPT-4o-mini and LangChain.</li>
+        <li>Added TTS narration via ElevenLabs API.</li>
+        <li><strong>Awarded Excellence Prize at the 1st In-Jeju IoT Innovation Challenge.</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-card" data-github="https://github.com/JungSeong/RMN-Project" data-image="/img/projects/fer.jpg"
+    onclick="openModal(this)">
+    <span class="project-status status-done">Done</span>
+    <div class="card-face">
+      <h3>Facial Expression Recognition Web App</h3>
+      <div class="project-meta">Apr. 2024 – May. 2024</div>
+      <div class="project-tags">
+        <span class="tag">Residual Masking Network</span>
+        <span class="tag">Flask</span>
+        <span class="tag">MySQL</span>
+      </div>
+      <p class="card-summary">Team-led web app for facial expression recognition using Residual Masking Network and
+        Flask.</p>
+      <div class="card-cta">View Details →</div>
+    </div>
+    <div class="card-details" hidden>
+      <ul>
+        <li>Led a team to build a web-based facial expression recognition app using Residual Masking Network.</li>
+        <li>Developed the Flask + MySQL backend and managed the project schedule via WBS.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="legend">
+  Status:
+  <span style="background:#d1fae5; color:#065f46;">Done</span>
+  <span style="background:#fef3c7; color:#92400e;">In Progress</span>
+  <span style="background:#ede9fe; color:#5b21b6;">Planned</span>
+</div>
+
+<script>
+  function openModal(card) {
+    const title = card.querySelector('h3').innerHTML;
+    const meta = card.querySelector('.project-meta').textContent;
+    const tags = card.querySelector('.project-tags').innerHTML;
+    const details = card.querySelector('.card-details').innerHTML;
+    const status = card.querySelector('.project-status').outerHTML;
+    const github = card.dataset.github;
+    const image = card.dataset.image;
+
+    document.getElementById('modal-status').innerHTML = status;
+    document.getElementById('modal-title').innerHTML = title;
+    document.getElementById('modal-meta').textContent = meta;
+    document.getElementById('modal-tags').innerHTML = tags;
+    document.getElementById('modal-details').innerHTML = details;
+    document.getElementById('modal-github').href = github;
+
+    const wrap = document.getElementById('modal-image-wrap');
+    const img = document.getElementById('modal-image');
+    if (image) {
+      img.src = image;
+      wrap.classList.remove('no-image');
+    } else {
+      wrap.classList.add('no-image');
+    }
+
+    document.getElementById('project-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('project-modal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('project-modal')) closeModal();
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
