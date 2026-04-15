@@ -1,0 +1,196 @@
+---
+layout: page
+title: Retrospective
+subtitle: Reflections on contests and algorithm problem solving
+---
+
+<style>
+  /* ── Filter Tabs ──────────────────────── */
+  .retro-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1.2rem 0 1.8rem;
+    flex-wrap: wrap;
+  }
+
+  .retro-tab {
+    padding: 0.35rem 1rem;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #666;
+    transition: all 0.15s;
+    user-select: none;
+  }
+
+  .retro-tab:hover {
+    border-color: #008AFF;
+    color: #008AFF;
+  }
+
+  .retro-tab.active {
+    background: #008AFF;
+    border-color: #008AFF;
+    color: #fff;
+  }
+
+  /* ── Post List ────────────────────────── */
+  .retro-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .retro-item {
+    border-bottom: 1px solid #ececec;
+    padding: 1.3rem 0;
+    transition: background 0.1s;
+  }
+
+  .retro-item:last-child {
+    border-bottom: none;
+  }
+
+  .retro-item-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .retro-item-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #222;
+    text-decoration: none;
+    line-height: 1.4;
+    flex: 1;
+  }
+
+  .retro-item-title:hover {
+    color: #008AFF;
+  }
+
+  .retro-item-date {
+    font-size: 0.78rem;
+    color: #aaa;
+    white-space: nowrap;
+    margin-top: 0.2rem;
+  }
+
+  .retro-category-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-bottom: 0.4rem;
+  }
+
+  .badge-contest {
+    background: #e8f0fe;
+    color: #1a56db;
+  }
+
+  .badge-algorithm {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  .retro-excerpt {
+    font-size: 0.88rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0.45rem 0 0;
+    max-width: 720px;
+  }
+
+  /* ── Empty State ─────────────────────── */
+  .retro-empty {
+    text-align: center;
+    padding: 3.5rem 0;
+    color: #bbb;
+    font-size: 0.9rem;
+    display: none;
+  }
+
+  .retro-empty.visible {
+    display: block;
+  }
+</style>
+
+<!-- ── Filter Tabs ─────────────────────── -->
+<div class="retro-tabs">
+  <div class="retro-tab active" data-filter="all">All</div>
+  <div class="retro-tab" data-filter="contest">Contest</div>
+  <div class="retro-tab" data-filter="algorithm">Algorithm</div>
+</div>
+
+<!-- ── Post List ──────────────────────── -->
+<ul class="retro-list" id="retro-list">
+{% assign retro_posts = site.posts | where_exp: "post", "post.tags contains 'retrospective'" | sort: 'date' | reverse %}
+{% if retro_posts.size == 0 %}
+  <!-- placeholder: remove once real posts exist -->
+{% else %}
+  {% for post in retro_posts %}
+    {% if post.tags contains 'contest' %}
+      {% assign badge_class = 'badge-contest' %}
+      {% assign badge_label = 'Contest' %}
+      {% assign category_key = 'contest' %}
+    {% elsif post.tags contains 'algorithm' %}
+      {% assign badge_class = 'badge-algorithm' %}
+      {% assign badge_label = 'Algorithm' %}
+      {% assign category_key = 'algorithm' %}
+    {% else %}
+      {% assign badge_class = 'badge-contest' %}
+      {% assign badge_label = 'etc.' %}
+      {% assign category_key = 'all' %}
+    {% endif %}
+  <li class="retro-item" data-category="{{ category_key }}">
+    <span class="retro-category-badge {{ badge_class }}">{{ badge_label }}</span>
+    <div class="retro-item-header">
+      <a class="retro-item-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span class="retro-item-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+    </div>
+    {% if post.excerpt %}
+    <p class="retro-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
+    {% endif %}
+  </li>
+  {% endfor %}
+{% endif %}
+</ul>
+
+<div class="retro-empty" id="retro-empty">작성된 글이 없습니다.</div>
+
+<script>
+  (function () {
+    const tabs = document.querySelectorAll('.retro-tab');
+    const items = document.querySelectorAll('.retro-item');
+    const empty = document.getElementById('retro-empty');
+
+    function applyFilter(filter) {
+      let visible = 0;
+      items.forEach(item => {
+        const show = filter === 'all' || item.dataset.category === filter;
+        item.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      empty.classList.toggle('visible', visible === 0);
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        applyFilter(tab.dataset.filter);
+      });
+    });
+
+    // initial state: show empty if no posts rendered
+    if (items.length === 0) empty.classList.add('visible');
+  })();
+</script>

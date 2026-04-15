@@ -1,0 +1,441 @@
+---
+layout: page
+title: Algorithm
+subtitle: PS Solving - LeetCode & BaekJoon
+---
+
+<style>
+    /* ── Grid & Card ──────────────────────── */
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 0.8rem;
+    }
+
+    .project-card {
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 1.4rem 1.6rem;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-face {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .project-card h3 {
+        margin-top: 0;
+        margin-bottom: 0.3rem;
+        font-size: 1.05rem;
+        line-height: 1.4;
+        padding-right: 3.5rem;
+    }
+
+    .project-meta {
+        font-size: 0.78rem;
+        color: #999;
+        margin-bottom: 0.5rem;
+    }
+
+    .project-tags {
+        margin: 0.6rem 0;
+    }
+
+    .tag {
+        display: inline-block;
+        background: #e8f0fe;
+        color: #1a56db;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        margin: 2px 3px 2px 0;
+    }
+
+    /* ── BOJ Tier Tags ───────────────────────── */
+    .tag-boj-bronze {
+        display: inline-block;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        margin: 2px 3px 2px 0;
+        background: #f0e8dc;
+        color: #7d4e2d;
+    }
+
+    .tag-boj-silver {
+        display: inline-block;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        margin: 2px 3px 2px 0;
+        background: #e8edf2;
+        color: #4a6581;
+    }
+
+    .tag-boj-gold {
+        display: inline-block;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        margin: 2px 3px 2px 0;
+        background: #fff5d6;
+        color: #a07800;
+        font-weight: 600;
+    }
+
+    .tag-boj-plat {
+        display: inline-block;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        margin: 2px 3px 2px 0;
+        background: #d6f5ef;
+        color: #0a7a5e;
+    }
+
+    .tag-boj-diamond {
+        display: inline-block;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        margin: 2px 3px 2px 0;
+        background: #daeeff;
+        color: #005fa3;
+    }
+
+    /* ── LeetCode Difficulty Tags ────────────── */
+    .tag-lc-easy {
+        display: inline-block;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        margin: 2px 3px 2px 0;
+        background: #d1fae5;
+        color: #065f46;
+    }
+
+    .tag-lc-medium {
+        display: inline-block;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        margin: 2px 3px 2px 0;
+        background: #fff3cd;
+        color: #92400e;
+    }
+
+    .tag-lc-hard {
+        display: inline-block;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        margin: 2px 3px 2px 0;
+        background: #fee2e2;
+        color: #991b1b;
+    }
+
+    .card-summary {
+        font-size: 0.88rem;
+        color: #555;
+        line-height: 1.55;
+        flex: 1;
+        margin-bottom: 0;
+    }
+
+    .card-cta {
+        font-size: 0.8rem;
+        color: #008AFF;
+        font-weight: 600;
+        margin-top: 0.5rem;
+    }
+
+    .project-status {
+        font-size: 0.72rem;
+        font-weight: bold;
+        border-radius: 4px;
+        padding: 2px 8px;
+        position: absolute;
+        top: 1.2rem;
+        right: 1.2rem;
+    }
+
+    .status-done {
+        background: #d1fae5;
+        color: #065f46;
+    }
+
+    .status-wip {
+        background: #fef3c7;
+        color: #92400e;
+    }
+
+    .status-plan {
+        background: #ede9fe;
+        color: #5b21b6;
+    }
+
+    .award-badge {
+        font-size: 0.72rem;
+        background: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffc107;
+        border-radius: 4px;
+        padding: 1px 7px;
+        margin-left: 4px;
+        font-weight: 600;
+        vertical-align: middle;
+    }
+
+    /* ── Modal ──────────────────────────────── */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+    }
+
+    .modal-overlay.active {
+        display: flex;
+    }
+
+    .modal-box {
+        background: #fff;
+        border-radius: 12px;
+        max-width: 660px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 2rem 2.2rem;
+        position: relative;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        animation: modalIn 0.2s ease;
+    }
+
+    @keyframes modalIn {
+        from {
+            opacity: 0;
+            transform: translateY(14px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1.2rem;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #888;
+        line-height: 1;
+        padding: 0.2rem 0.4rem;
+    }
+
+    .modal-close:hover {
+        color: #333;
+    }
+
+    .modal-image-wrap {
+        width: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 1.2rem;
+        background: #f3f4f6;
+        max-height: 260px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-image-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .modal-image-wrap.no-image {
+        display: none;
+    }
+
+    .modal-image-placeholder {
+        width: 100%;
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #bbb;
+        font-size: 0.85rem;
+        background: #f8f9fa;
+        border-radius: 8px;
+        margin-bottom: 1.2rem;
+        border: 1px dashed #ddd;
+    }
+
+    #modal-title {
+        font-size: 1.2rem;
+        margin: 0.4rem 0 0.3rem;
+        line-height: 1.4;
+    }
+
+    #modal-meta {
+        font-size: 0.8rem;
+        color: #999;
+        margin-bottom: 0.6rem;
+    }
+
+    #modal-tags {
+        margin-bottom: 1rem;
+    }
+
+    #modal-details ul {
+        margin: 0 0 1rem 0;
+        padding-left: 1.3rem;
+        font-size: 0.9rem;
+        color: #444;
+        line-height: 1.7;
+    }
+
+    .modal-links {
+        margin-top: 1rem;
+    }
+
+    .modal-links a {
+        font-size: 0.88rem;
+        color: #008AFF;
+        text-decoration: none;
+        margin-right: 1rem;
+        font-weight: 500;
+    }
+
+    .modal-links a:hover {
+        text-decoration: underline;
+    }
+
+    /* ── Legend ──────────────────────────────── */
+    .legend {
+        font-size: 0.85rem;
+        color: #999;
+        margin-top: 2.5rem;
+    }
+
+    .legend span {
+        border-radius: 4px;
+        padding: 1px 7px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        margin-left: 4px;
+    }
+</style>
+
+<!-- ── Modal ─────────────────────────────── -->
+<div id="project-modal" class="modal-overlay" onclick="closeModalOutside(event)">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <div id="modal-image-wrap" class="modal-image-wrap no-image">
+            <img id="modal-image" src="" alt="Project image"
+                onerror="document.getElementById('modal-image-wrap').classList.add('no-image')">
+        </div>
+        <div id="modal-status"></div>
+        <h2 id="modal-title"></h2>
+        <div id="modal-meta"></div>
+        <div id="modal-tags"></div>
+        <div id="modal-details"></div>
+        <div class="modal-links">
+            <a id="modal-github" href="#" target="_blank">🔗 GitHub</a>
+        </div>
+    </div>
+</div>
+
+<!-- ── Contests Grid ─────────────────────── -->
+<div class="project-grid">
+
+    <!-- LeetCode -->
+    <div class="project-card" data-image="/img/algorithm/leetcode.jpg" onclick="openModal(this)">
+        <span class="project-status status-wip">In Progress</span>
+        <div class="card-face">
+            <h3>LeetCode</h3>
+            <div class="project-meta">Apr. 2026 – Present ·</div>
+            <p class="card-summary">Solved 0+ problems on LeetCode</p>
+        </div>
+    </div>
+
+    <!-- Baekjoon Online Judge -->
+    <div class="project-card" data-image="/img/algorithm/boj.jpg" onclick="openModal(this)">
+        <span class="project-status status-done">Done</span>
+        <div class="card-face">
+            <h3>BOJ</h3>
+            <div class="project-meta">Jun. 2025 – Apr. 2026</div>
+            <div class="project-tags">
+                <span class="tag-boj-gold">Gold I</span>
+            </div>
+            <p class="card-summary">Solved 441 problems on BaekJoon using Python</p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(card) {
+            const title = card.querySelector('h3').innerHTML;
+            const meta = card.querySelector('.project-meta').textContent;
+            const tags = card.querySelector('.project-tags').innerHTML;
+            const details = card.querySelector('.card-details').innerHTML;
+            const status = card.querySelector('.project-status').outerHTML;
+            const github = card.dataset.github;
+            const image = card.dataset.image;
+
+            document.getElementById('modal-status').innerHTML = status;
+            document.getElementById('modal-title').innerHTML = title;
+            document.getElementById('modal-meta').textContent = meta;
+            document.getElementById('modal-tags').innerHTML = tags;
+            document.getElementById('modal-details').innerHTML = details;
+            document.getElementById('modal-github').href = github;
+
+            const wrap = document.getElementById('modal-image-wrap');
+            const img = document.getElementById('modal-image');
+            if (image) {
+                img.src = image;
+                wrap.classList.remove('no-image');
+            } else {
+                wrap.classList.add('no-image');
+            }
+
+            document.getElementById('project-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('project-modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function closeModalOutside(e) {
+            if (e.target === document.getElementById('project-modal')) closeModal();
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>

@@ -20,13 +20,9 @@ author: SEONGWON JANG
 ###############################################
 
 navbar-links:
-  POST LISTS:
-    - All Posts: "posts"
-    - OS: "posts/Ubuntu"
-    - AI: "posts/CV"
-    - Robotics: "posts/ROS2"
   ALGORITHM: "algorithm"
   CONTESTS: "contests"
+  RETROSPECTIVE: "retrospective"
   PROJECTS: "projects"
 
 ################
