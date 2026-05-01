@@ -335,6 +335,29 @@ subtitle: PS Solving - LeetCode & BaekJoon
         text-decoration: underline;
     }
 
+    /* ── Card Preview ───────────────────── */
+    .card-preview {
+        width: 100%;
+        border-radius: 6px;
+        overflow: hidden;
+        margin-bottom: 0.8rem;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.25s ease, opacity 0.2s ease;
+    }
+
+    .card-preview.visible {
+        max-height: 180px;
+        opacity: 1;
+    }
+
+    .card-preview img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        display: block;
+    }
+
     /* ── Legend ──────────────────────────────── */
     .legend {
         font-size: 0.85rem;
@@ -356,8 +379,7 @@ subtitle: PS Solving - LeetCode & BaekJoon
     <div class="modal-box">
         <button class="modal-close" onclick="closeModal()">×</button>
         <div id="modal-image-wrap" class="modal-image-wrap no-image">
-            <img id="modal-image" src="" alt="Project image"
-                onerror="document.getElementById('modal-image-wrap').classList.add('no-image')">
+            <img id="modal-image" src="" alt="Project image">
         </div>
         <div id="modal-status"></div>
         <h2 id="modal-title"></h2>
@@ -413,11 +435,20 @@ subtitle: PS Solving - LeetCode & BaekJoon
             document.getElementById('modal-details').innerHTML = details;
             document.getElementById('modal-github').href = github;
 
+            const gif = card.dataset.gif;
             const wrap = document.getElementById('modal-image-wrap');
             const img = document.getElementById('modal-image');
-            if (image) {
-                img.src = image;
+            if (gif || image) {
                 wrap.classList.remove('no-image');
+                if (gif && image) {
+                    img.onerror = () => {
+                        img.onerror = () => wrap.classList.add('no-image');
+                        img.src = image;
+                    };
+                } else {
+                    img.onerror = () => wrap.classList.add('no-image');
+                }
+                img.src = gif || image;
             } else {
                 wrap.classList.add('no-image');
             }
@@ -437,5 +468,42 @@ subtitle: PS Solving - LeetCode & BaekJoon
 
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') closeModal();
+        });
+
+        // hover preview (GIF 우선, 없으면 정적 이미지로 fallback)
+        document.querySelectorAll('.project-card').forEach(card => {
+            const gifSrc = card.dataset.gif;
+            const imageSrc = card.dataset.image;
+            if (!gifSrc && !imageSrc) return;
+
+            const preview = document.createElement('div');
+            preview.className = 'card-preview';
+            const img = document.createElement('img');
+            img.alt = 'preview';
+            preview.appendChild(img);
+            card.querySelector('.card-face').prepend(preview);
+
+            let state = 'idle';
+
+            const tryLoad = (src, fallback) => {
+                img.onload = () => { state = 'loaded'; preview.classList.add('visible'); };
+                img.onerror = () => {
+                    if (fallback) tryLoad(fallback, null);
+                    else state = 'failed';
+                };
+                img.src = src;
+            };
+
+            card.addEventListener('mouseenter', () => {
+                if (state === 'failed') return;
+                if (state === 'loaded') { preview.classList.add('visible'); return; }
+                if (state === 'loading') return;
+                state = 'loading';
+                tryLoad(gifSrc || imageSrc, gifSrc && imageSrc ? imageSrc : null);
+            });
+
+            card.addEventListener('mouseleave', () => {
+                preview.classList.remove('visible');
+            });
         });
     </script>

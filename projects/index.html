@@ -286,6 +286,29 @@ subtitle: A collection of projects I have completed or currently working on
     text-decoration: underline;
   }
 
+  /* ── Card GIF Preview ───────────────────── */
+  .card-preview {
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.25s ease, opacity 0.2s ease;
+  }
+
+  .card-preview.visible {
+    max-height: 180px;
+    opacity: 1;
+  }
+
+  .card-preview img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+  }
+
   /* ── Legend ──────────────────────────────── */
   .legend {
     font-size: 0.85rem;
@@ -307,8 +330,7 @@ subtitle: A collection of projects I have completed or currently working on
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()">×</button>
     <div id="modal-image-wrap" class="modal-image-wrap no-image">
-      <img id="modal-image" src="" alt="Project image"
-        onerror="document.getElementById('modal-image-wrap').classList.add('no-image')">
+      <img id="modal-image" src="" alt="Project image">
     </div>
     <div id="modal-status"></div>
     <h2 id="modal-title"></h2>
@@ -326,11 +348,11 @@ subtitle: A collection of projects I have completed or currently working on
 <div class="project-grid">
 
   <div class="project-card" data-github="https://github.com/JungSeong/Pintos" data-image="/img/projects/pintos.jpg"
-    onclick="openModal(this)">
+    data-gif="/img/projects/pintos.gif" onclick="openModal(this)">
     <span class="project-status status-inprogress">In Progress</span>
     <div class="card-face">
       <h3>Practice Pintos</h3>
-      <div class="project-meta">Apr. 2026 – Present</div>
+      <div class="project-meta">May. 2026 – Present</div>
       <div class="project-tags">
         <span class="tag">C</span>
         <span class="tag">OS</span>
@@ -348,7 +370,7 @@ subtitle: A collection of projects I have completed or currently working on
   </div>
 
   <div class="project-card" data-github="https://github.com/JungSeong/Advanced-QA-Chatbot-for-Public-Offices"
-    data-image="/img/projects/chatbot.jpg" onclick="openModal(this)">
+    data-image="/img/projects/chatbot.jpg" data-gif="/img/projects/chatbot.gif" onclick="openModal(this)">
     <span class="project-status status-done">Done</span>
     <div class="card-face">
       <h3>Advanced Q&A Chatbot System for Public Offices</h3>
@@ -378,7 +400,7 @@ subtitle: A collection of projects I have completed or currently working on
   </div>
 
   <div class="project-card" data-github="https://github.com/addinedu-roscamp-4th/roscamp-repo-2"
-    data-image="/img/projects/robodine.png" onclick="openModal(this)">
+    data-image="/img/projects/robodine.png" data-gif="/img/projects/robodine.gif" onclick="openModal(this)">
     <span class="project-status status-done">Done</span>
     <div class="card-face">
       <h3>RoboDine: AI-Based Robotic Restaurant Automation Platform</h3>
@@ -413,7 +435,7 @@ subtitle: A collection of projects I have completed or currently working on
 <div class="project-grid">
 
   <div class="project-card" data-github="https://github.com/JungSeong/Robo" data-image="/img/projects/robo.jpg"
-    onclick="openModal(this)">
+    data-gif="/img/projects/robo.gif" onclick="openModal(this)">
     <span class="project-status status-done">Done</span>
     <div class="card-face">
       <h3>Robo – Household Companion</h3>
@@ -435,7 +457,7 @@ subtitle: A collection of projects I have completed or currently working on
   </div>
 
   <div class="project-card" data-github="https://github.com/JungSeong/Research-Program"
-    data-image="/img/projects/detector.jpg" onclick="openModal(this)">
+    data-image="/img/projects/detector.jpg" data-gif="/img/projects/detector.gif" onclick="openModal(this)">
     <span class="project-status status-done">Done</span>
     <div class="card-face">
       <h3>One-Stage Object Detector from Scratch</h3>
@@ -458,7 +480,7 @@ subtitle: A collection of projects I have completed or currently working on
   </div>
 
   <div class="project-card" data-github="https://github.com/JungSeong/AIBAK" data-image="/img/projects/aibak.jpg"
-    onclick="openModal(this)">
+    data-gif="/img/projects/aibak.gif" onclick="openModal(this)">
     <span class="project-status status-done">Done</span>
     <div class="card-face">
       <h3>AIBAK: AI-Based Children's Book Kiosk Service</h3>
@@ -483,7 +505,7 @@ subtitle: A collection of projects I have completed or currently working on
   </div>
 
   <div class="project-card" data-github="https://github.com/JungSeong/RMN-Project" data-image="/img/projects/fer.jpg"
-    onclick="openModal(this)">
+    data-gif="/img/projects/fer.gif" onclick="openModal(this)">
     <span class="project-status status-done">Done</span>
     <div class="card-face">
       <h3>Facial Expression Recognition Web App</h3>
@@ -519,6 +541,7 @@ subtitle: A collection of projects I have completed or currently working on
     const status = card.querySelector('.project-status').outerHTML;
     const github = card.dataset.github;
     const image = card.dataset.image;
+    const gif = card.dataset.gif;
 
     document.getElementById('modal-status').innerHTML = status;
     document.getElementById('modal-title').innerHTML = title;
@@ -529,9 +552,17 @@ subtitle: A collection of projects I have completed or currently working on
 
     const wrap = document.getElementById('modal-image-wrap');
     const img = document.getElementById('modal-image');
-    if (image) {
-      img.src = image;
+    if (gif || image) {
       wrap.classList.remove('no-image');
+      if (gif && image) {
+        img.onerror = () => {
+          img.onerror = () => wrap.classList.add('no-image');
+          img.src = image;
+        };
+      } else {
+        img.onerror = () => wrap.classList.add('no-image');
+      }
+      img.src = gif || image;
     } else {
       wrap.classList.add('no-image');
     }
@@ -551,5 +582,42 @@ subtitle: A collection of projects I have completed or currently working on
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeModal();
+  });
+
+  // hover preview (GIF 우선, 없으면 정적 이미지로 fallback)
+  document.querySelectorAll('.project-card').forEach(card => {
+    const gifSrc = card.dataset.gif;
+    const imageSrc = card.dataset.image;
+    if (!gifSrc && !imageSrc) return;
+
+    const preview = document.createElement('div');
+    preview.className = 'card-preview';
+    const img = document.createElement('img');
+    img.alt = 'preview';
+    preview.appendChild(img);
+    card.querySelector('.card-face').prepend(preview);
+
+    let state = 'idle'; // idle | loading | loaded | failed
+
+    const tryLoad = (src, fallback) => {
+      img.onload = () => { state = 'loaded'; preview.classList.add('visible'); };
+      img.onerror = () => {
+        if (fallback) tryLoad(fallback, null);
+        else state = 'failed';
+      };
+      img.src = src;
+    };
+
+    card.addEventListener('mouseenter', () => {
+      if (state === 'failed') return;
+      if (state === 'loaded') { preview.classList.add('visible'); return; }
+      if (state === 'loading') return;
+      state = 'loading';
+      tryLoad(gifSrc || imageSrc, gifSrc && imageSrc ? imageSrc : null);
+    });
+
+    card.addEventListener('mouseleave', () => {
+      preview.classList.remove('visible');
+    });
   });
 </script>
