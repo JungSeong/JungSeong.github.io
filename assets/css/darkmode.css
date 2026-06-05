@@ -21,6 +21,28 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
+/* Documentation pages */
+main > .row > div > h2 {
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+}
+
+main > .row > div > h3 {
+  margin-top: 2.15rem;
+  margin-bottom: 0.85rem;
+}
+
+main > .row > div > h4 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.7rem;
+}
+
+main > .row > div > h2:first-child,
+main > .row > div > h3:first-child,
+main > .row > div > h4:first-child {
+  margin-top: 0;
+}
+
 /* Smooth transitions */
 body,
 .navbar-custom,

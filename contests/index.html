@@ -252,6 +252,10 @@ subtitle: Competition entries — results and key contributions
     text-decoration: underline;
   }
 
+  .modal-links a[hidden] {
+    display: none;
+  }
+
   /* ── Card Preview ───────────────────── */
   .card-preview {
     width: 100%;
@@ -304,7 +308,8 @@ subtitle: Competition entries — results and key contributions
     <div id="modal-tags"></div>
     <div id="modal-details"></div>
     <div class="modal-links">
-      <a id="modal-github" href="#" target="_blank">🔗 GitHub</a>
+      <a id="modal-github" href="#" target="_blank">GitHub</a>
+      <a id="modal-docs" href="#" target="_self" hidden>Docs</a>
     </div>
   </div>
 </div>
@@ -313,7 +318,8 @@ subtitle: Competition entries — results and key contributions
 <div class="project-grid">
 
   <!-- AI for Industry Challenge -->
-  <div class="project-card" data-github="https://github.com/JungSeong/AIC_Sejong" data-image="/img/contests/aic.jpg"
+  <div class="project-card" data-github="https://github.com/JungSeong/AIC_Sejong"
+    data-docs="/contests/aic-sejong/" data-image="/img/contests/aic.jpg" data-gif="/img/contests/aic.gif"
     onclick="openModal(this)">
     <span class="project-status status-done">Done</span>
     <div class="card-face">
@@ -343,7 +349,8 @@ subtitle: Competition entries — results and key contributions
 
   <!-- Structural Stability Physical Reasoning AI -->
   <div class="project-card" data-github="https://github.com/whyz-dev/structure-stability"
-    data-image="/img/contests/structural-stability.jpg" onclick="openModal(this)">
+    data-docs="/contests/structure-stability/" data-image="/img/contests/structural-stability.jpg"
+    data-gif="/img/contests/structural-stability.gif" onclick="openModal(this)">
     <span class="project-status status-done">Done</span>
     <div class="card-face">
       <h3>Structural Stability Physical Reasoning AI <span class="award-badge">Top 13.6%</span></h3>
@@ -376,6 +383,7 @@ subtitle: Competition entries — results and key contributions
       const details = card.querySelector('.card-details').innerHTML;
       const status = card.querySelector('.project-status').outerHTML;
       const github = card.dataset.github;
+      const docs = card.dataset.docs;
       const image = card.dataset.image;
 
       document.getElementById('modal-status').innerHTML = status;
@@ -384,6 +392,15 @@ subtitle: Competition entries — results and key contributions
       document.getElementById('modal-tags').innerHTML = tags;
       document.getElementById('modal-details').innerHTML = details;
       document.getElementById('modal-github').href = github;
+
+      const docsLink = document.getElementById('modal-docs');
+      if (docs) {
+        docsLink.href = docs;
+        docsLink.hidden = false;
+      } else {
+        docsLink.removeAttribute('href');
+        docsLink.hidden = true;
+      }
 
       const gif = card.dataset.gif;
       const wrap = document.getElementById('modal-image-wrap');

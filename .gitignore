@@ -1,15 +1,30 @@
-# project
-_site
-.sass-cache
-.vagrant
+# Jekyll / Ruby build output
+_site/
+.jekyll-cache/
+.sass-cache/
+.bundle/
+vendor/bundle/
+beautiful-jekyll-theme-*.gem
 
-# general
+# OS / editor noise
 .DS_Store
 Thumbs.db
 ehthumbs.db
+.idea/
+.vscode/
 
+# Local scripts, caches, and secrets
+.env
+.env.*
+!.env.example
+*.local
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Generated or machine-specific files
 Gemfile.lock
-beautiful-jekyll-theme-*.gem
+.vagrant/
 
 # Claude Setup
 CV/Awesome-PhD-CV

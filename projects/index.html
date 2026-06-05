@@ -286,6 +286,10 @@ subtitle: A collection of projects I have completed or currently working on
     text-decoration: underline;
   }
 
+  .modal-links a[hidden] {
+    display: none;
+  }
+
   /* ── Card GIF Preview ───────────────────── */
   .card-preview {
     width: 100%;
@@ -338,7 +342,8 @@ subtitle: A collection of projects I have completed or currently working on
     <div id="modal-tags"></div>
     <div id="modal-details"></div>
     <div class="modal-links">
-      <a id="modal-github" href="#" target="_blank">🔗 GitHub</a>
+      <a id="modal-github" href="#" target="_blank">GitHub</a>
+      <a id="modal-docs" href="#" target="_self" hidden>Docs</a>
     </div>
   </div>
 </div>
@@ -347,7 +352,8 @@ subtitle: A collection of projects I have completed or currently working on
 <div class="project-section-title">Major Projects</div>
 <div class="project-grid">
   <div class="project-card" data-github="https://github.com/JungSeong/QA-FineTune"
-    data-image="/img/projects/chatbot.jpg" data-gif="/img/projects/chatbot.gif" onclick="openModal(this)">
+    data-docs="/projects/qa-finetune/" data-image="/img/projects/chatbot.jpg" data-gif="/img/projects/chatbot.gif"
+    onclick="openModal(this)">
     <span class="project-status status-done">Done</span>
     <div class="card-face">
       <h3>Advanced Q&A Chatbot System for Public Offices</h3>
@@ -480,8 +486,8 @@ subtitle: A collection of projects I have completed or currently working on
     </div>
   </div>
 
-  <div class="project-card" data-github="https://github.com/JungSeong/RMN-Project" data-image="/img/projects/fer.jpg"
-    data-gif="/img/projects/fer.gif" onclick="openModal(this)">
+  <div class="project-card" data-github="https://github.com/JungSeong/RMN-Project"
+    data-image="/img/projects/fer.jpg" data-gif="/img/projects/fer.gif" onclick="openModal(this)">
     <span class="project-status status-done">Done</span>
     <div class="card-face">
       <h3>Facial Expression Recognition Web App</h3>
@@ -516,6 +522,7 @@ subtitle: A collection of projects I have completed or currently working on
     const details = card.querySelector('.card-details').innerHTML;
     const status = card.querySelector('.project-status').outerHTML;
     const github = card.dataset.github;
+    const docs = card.dataset.docs;
     const image = card.dataset.image;
     const gif = card.dataset.gif;
 
@@ -525,6 +532,15 @@ subtitle: A collection of projects I have completed or currently working on
     document.getElementById('modal-tags').innerHTML = tags;
     document.getElementById('modal-details').innerHTML = details;
     document.getElementById('modal-github').href = github;
+
+    const docsLink = document.getElementById('modal-docs');
+    if (docs) {
+      docsLink.href = docs;
+      docsLink.hidden = false;
+    } else {
+      docsLink.removeAttribute('href');
+      docsLink.hidden = true;
+    }
 
     const wrap = document.getElementById('modal-image-wrap');
     const img = document.getElementById('modal-image');

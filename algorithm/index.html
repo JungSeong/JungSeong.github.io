@@ -335,6 +335,10 @@ subtitle: PS Solving - LeetCode & BaekJoon
         text-decoration: underline;
     }
 
+    .modal-links a[hidden] {
+        display: none;
+    }
+
     /* ── Card Preview ───────────────────── */
     .card-preview {
         width: 100%;
@@ -387,7 +391,8 @@ subtitle: PS Solving - LeetCode & BaekJoon
         <div id="modal-tags"></div>
         <div id="modal-details"></div>
         <div class="modal-links">
-            <a id="modal-github" href="#" target="_blank">🔗 GitHub</a>
+            <a id="modal-github" href="#" target="_blank">GitHub</a>
+            <a id="modal-profile" href="#" target="_blank" hidden>Profile</a>
         </div>
     </div>
 </div>
@@ -397,6 +402,7 @@ subtitle: PS Solving - LeetCode & BaekJoon
 
     <!-- LeetCode -->
     <div class="project-card" data-github="https://github.com/JungSeong/Algorithm"
+        data-profile-url="https://leetcode.com/u/jungseong/" data-profile-label="LeetCode"
         data-image="/img/algorithm/leetcode.jpg" onclick="openModal(this)">
         <span class="project-status status-wip">In Progress</span>
         <div class="card-face">
@@ -418,7 +424,7 @@ subtitle: PS Solving - LeetCode & BaekJoon
 
     <!-- Baekjoon Online Judge -->
     <div class="project-card" data-github="https://github.com/JungSeong/Algorithm" data-image="/img/algorithm/boj.jpg"
-        onclick="openModal(this)">
+        data-profile-url="https://solved.ac/profile/jungseong#" data-profile-label="Baekjoon" onclick="openModal(this)">
         <span class="project-status status-done">Done</span>
         <div class="card-face">
             <h3>BOJ</h3>
@@ -444,6 +450,8 @@ subtitle: PS Solving - LeetCode & BaekJoon
             const details = card.querySelector('.card-details').innerHTML;
             const status = card.querySelector('.project-status').outerHTML;
             const github = card.dataset.github;
+            const profileUrl = card.dataset.profileUrl;
+            const profileLabel = card.dataset.profileLabel;
             const image = card.dataset.image;
 
             document.getElementById('modal-status').innerHTML = status;
@@ -452,6 +460,16 @@ subtitle: PS Solving - LeetCode & BaekJoon
             document.getElementById('modal-tags').innerHTML = tags;
             document.getElementById('modal-details').innerHTML = details;
             document.getElementById('modal-github').href = github;
+
+            const profileLink = document.getElementById('modal-profile');
+            if (profileUrl) {
+                profileLink.href = profileUrl;
+                profileLink.textContent = profileLabel || 'Profile';
+                profileLink.hidden = false;
+            } else {
+                profileLink.removeAttribute('href');
+                profileLink.hidden = true;
+            }
 
             const gif = card.dataset.gif;
             const wrap = document.getElementById('modal-image-wrap');

@@ -20,10 +20,10 @@ author: SEONGWON JANG
 ###############################################
 
 navbar-links:
-  ALGORITHM: "algorithm"
   CONTESTS: "contests"
-  RETROSPECTIVE: "retrospective"
   PROJECTS: "projects"
+  ALGORITHM: "algorithm"
+  RETROSPECTIVE: "retrospective"
 
 ################
 # --- Logo --- #
