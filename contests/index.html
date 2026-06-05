@@ -315,23 +315,28 @@ subtitle: Competition entries — results and key contributions
   <!-- AI for Industry Challenge -->
   <div class="project-card" data-github="https://github.com/JungSeong/AIC_Sejong" data-image="/img/contests/aic.jpg"
     onclick="openModal(this)">
-    <span class="project-status status-wip">In Progress</span>
+    <span class="project-status status-done">Done</span>
     <div class="card-face">
       <h3>AI for Industry Challenge</h3>
-      <div class="project-meta">Apr. 2026 – Present · <em>Team Leader</em></div>
+      <div class="project-meta">Apr. 2026 – May. 2026 · <em>Team Leader</em></div>
       <div class="project-tags">
         <span class="tag">PyTorch</span>
-        <span class="tag">CV</span>
         <span class="tag">ROS2</span>
+        <span class="tag">Gazebo</span>
+        <span class="tag">YOLO</span>
+        <span class="tag">OpenCV</span>
       </div>
-      <p class="card-summary">Advancing AI in industrial environments — leading architecture design and codebase
-        organization.</p>
+      <p class="card-summary">Built ROS2 and Gazebo pipelines for UR5e cable-port insertion experiments.</p>
       <div class="card-cta">View Details →</div>
     </div>
     <div class="card-details" hidden>
       <ul>
-        <li>Responsible for <strong>overall project structure design</strong> and <strong>codebase
-            organization</strong>.</li>
+        <li>Developed a ROS2 staged motion-planning policy node for UR5e cable-port peg-in-hole insertion.</li>
+        <li>Built a Gazebo-based automatic data-collection node to reduce repeated experiment bottlenecks.</li>
+        <li>Integrated YOLO port recognition, multiview/stereo triangulation, and Vision/F/T sensor retry logic for
+          port approach and insertion stabilization.</li>
+        <li>Managed GitHub and Hugging Face Hub artifacts and coordinated teammate recruiting, schedule, and role
+          assignment as team leader.</li>
       </ul>
     </div>
   </div>
@@ -341,7 +346,7 @@ subtitle: Competition entries — results and key contributions
     data-image="/img/contests/structural-stability.jpg" onclick="openModal(this)">
     <span class="project-status status-done">Done</span>
     <div class="card-face">
-      <h3>Structural Stability Physical Reasoning AI <span class="award-badge">Top 14%</span></h3>
+      <h3>Structural Stability Physical Reasoning AI <span class="award-badge">Top 13.6%</span></h3>
       <div class="project-meta">Mar. 2026 · <em>Team Member</em></div>
       <div class="project-tags">
         <span class="tag">PyTorch</span>
@@ -353,16 +358,12 @@ subtitle: Competition entries — results and key contributions
     </div>
     <div class="card-details" hidden>
       <ul>
-        <li><strong>Identified and resolved flaws</strong> in the existing data augmentation pipeline.</li>
-        <li>Validated video frame-based augmentation effectiveness via <strong>ablation studies.</strong></li>
-        <li>Selected optimal hyperparameters (architecture, learning rate, weight decay) via <strong>systematic sweep
-            experiments.</strong></li>
-        <li>Extracted feature vectors using a <strong>VideoMAE encoder</strong>; designed regularization functions for
-          improved
-          generalization.</li>
-        <li>Selected a knowledge distillation model and designed corresponding regularization functions for model
-          compression.</li>
-        <li><strong>Ranked 66th out of 484 teams (top 14%).</strong></li>
+        <li>Reworked the data-augmentation pipeline after identifying failure cases in video-based stability
+          prediction.</li>
+        <li>Built VideoMAE feature-extraction and regularization experiments to improve generalization.</li>
+        <li>Ran ablation and sweep experiments across architecture, learning rate, and weight decay to select stable
+          training settings.</li>
+        <li><strong>Ranked 66th out of 484 teams (top 13.6%).</strong></li>
       </ul>
     </div>
   </div>

@@ -346,30 +346,7 @@ subtitle: A collection of projects I have completed or currently working on
 <!-- ── Major Projects ─────────────────────── -->
 <div class="project-section-title">Major Projects</div>
 <div class="project-grid">
-
-  <div class="project-card" data-github="https://github.com/JungSeong/Pintos" data-image="/img/projects/pintos.jpg"
-    data-gif="/img/projects/pintos.gif" onclick="openModal(this)">
-    <span class="project-status status-inprogress">In Progress</span>
-    <div class="card-face">
-      <h3>Practice Pintos</h3>
-      <div class="project-meta">May. 2026 – Present</div>
-      <div class="project-tags">
-        <span class="tag">C</span>
-        <span class="tag">OS</span>
-        <span class="tag">Systems Programming</span>
-      </div>
-      <p class="card-summary">Implementing Stanford University's Pintos to deepen understanding of OS internals.</p>
-      <div class="card-cta">View Details →</div>
-    </div>
-    <div class="card-details" hidden>
-      <ul>
-        <li>Practicing Stanford University's Pintos project to understand OS internals including thread scheduling,
-          virtual memory, and file systems.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-card" data-github="https://github.com/JungSeong/Advanced-QA-Chatbot-for-Public-Offices"
+  <div class="project-card" data-github="https://github.com/JungSeong/QA-FineTune"
     data-image="/img/projects/chatbot.jpg" data-gif="/img/projects/chatbot.gif" onclick="openModal(this)">
     <span class="project-status status-done">Done</span>
     <div class="card-face">
@@ -383,18 +360,17 @@ subtitle: A collection of projects I have completed or currently working on
         <span class="tag">Docker</span>
         <span class="tag">MCP</span>
       </div>
-      <p class="card-summary">LLM-based Q&A system fine-tuned for public office inquiries</p>
+      <p class="card-summary">LLM-based Q&A system fine-tuned for public office inquiries.</p>
       <div class="card-cta">View Details →</div>
     </div>
     <div class="card-details" hidden>
       <ul>
-        <li>Accelerated inference and training using <strong>vLLM and DeepSpeed</strong>.</li>
-        <li>Containerized the system with Docker Compose; integrated MCP for accessibility.</li>
-        <li>Constructed <strong>high-quality synthetic Q&A datasets</strong> via Chain-of-Thought (CoT) prompting and
-          DeepEval
-          Synthesizer to secure golden datasets for fine-tuning.</li>
-        <li>Applied <strong>SFT with LoRA</strong> to improve instruction-following performance.</li>
-        <li>Deployed trained adapters and tokenizers to HuggingFace Hub.</li>
+        <li>Addressed unstable instruction-following in complex public-service questions by building
+          <strong>Chain-of-Thought golden datasets</strong> and a DeepEval Synthesizer data-generation flow.</li>
+        <li>Reduced inference and training bottlenecks by applying <strong>vLLM, DeepSpeed, SFT, and LoRA</strong> to
+          the fine-tuning pipeline.</li>
+        <li>Containerized the service with Docker Compose, integrated MCP for model access, and deployed trained
+          adapters and tokenizers to Hugging Face Hub.</li>
       </ul>
     </div>
   </div>
@@ -411,18 +387,18 @@ subtitle: A collection of projects I have completed or currently working on
         <span class="tag">OpenCV</span>
         <span class="tag">Mediapipe</span>
       </div>
-      <p class="card-summary">Restaurant robot platform covering arm grasping, and obstacle avoidance.</p>
+      <p class="card-summary">Restaurant robot platform covering arm grasping and obstacle avoidance.</p>
       <div class="card-cta">View Details →</div>
     </div>
     <div class="card-details" hidden>
       <ul>
-        <li>Refined <strong>6-DoF pose estimation</strong> using YOLO-v8-pose (Dropout + Pose Loss tuning) and 5-frame
-          moving average;
-          applied solvePnP for full 6-DoF recovery.</li>
-        <li>Implemented <strong>foreign object detection</strong> via Hough Circle Transform and DBSCAN clustering.</li>
-        <li>Built <strong>obstacle classification and avoidance pipeline</strong> using Mediapipe; published obstacle
-          type, LiDAR
-          distance, and robot ID as ROS2 topics.</li>
+        <li>Stabilized noisy 6-DoF object-pose estimates before robot-arm grasping by tuning
+          <strong>YOLOv8-pose</strong>, applying 5-frame averaging, and recovering pose with solvePnP; reduced
+          pose-estimation error by 14%.</li>
+        <li>Connected vision estimates to robot-arm control inputs and implemented foreign-object detection for safer
+          restaurant automation.</li>
+        <li>Built a camera/LiDAR-based obstacle classification and avoidance pipeline as ROS2 topics for mobile-robot
+          operation.</li>
         <li>Practiced Agile development with Git, Jira, and Confluence in a team of 6.</li>
       </ul>
     </div>
@@ -433,28 +409,6 @@ subtitle: A collection of projects I have completed or currently working on
 <!-- ── Minor Projects ────────────────────── -->
 <div class="project-section-title">Minor Projects</div>
 <div class="project-grid">
-
-  <div class="project-card" data-github="https://github.com/JungSeong/Robo" data-image="/img/projects/robo.jpg"
-    data-gif="/img/projects/robo.gif" onclick="openModal(this)">
-    <span class="project-status status-done">Done</span>
-    <div class="card-face">
-      <h3>Robo – Household Companion</h3>
-      <div class="project-meta">Mar. 2025 – May. 2025</div>
-      <div class="project-tags">
-        <span class="tag">Raspberry Pi 4</span>
-        <span class="tag">Gemini API</span>
-        <span class="tag">Python</span>
-      </div>
-      <p class="card-summary">Human–robot interactive home companion on Raspberry Pi 4 using multi-sensors.</p>
-      <div class="card-cta">View Details →</div>
-    </div>
-    <div class="card-details" hidden>
-      <ul>
-        <li>Developed a human–robot interactive home companion on Raspberry Pi 4; integrated microphone and touch
-          sensors with the Gemini API for user intent recognition and action execution.</li>
-      </ul>
-    </div>
-  </div>
 
   <div class="project-card" data-github="https://github.com/JungSeong/Research-Program"
     data-image="/img/projects/detector.jpg" data-gif="/img/projects/detector.gif" onclick="openModal(this)">
@@ -475,6 +429,28 @@ subtitle: A collection of projects I have completed or currently working on
       <ul>
         <li>Implemented a One-Stage Detector model from scratch using TensorFlow and PyTorch.</li>
         <li>Trained and evaluated on the Pascal VOC 2012 dataset.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-card" data-github="https://github.com/JungSeong/Robo" data-image="/img/projects/robo.jpg"
+    data-gif="/img/projects/robo.gif" onclick="openModal(this)">
+    <span class="project-status status-done">Done</span>
+    <div class="card-face">
+      <h3>Robo – Household Companion</h3>
+      <div class="project-meta">Mar. 2025 – May. 2025</div>
+      <div class="project-tags">
+        <span class="tag">Raspberry Pi 4</span>
+        <span class="tag">Gemini API</span>
+        <span class="tag">Python</span>
+      </div>
+      <p class="card-summary">Human–robot interactive home companion on Raspberry Pi 4 using multi-sensors.</p>
+      <div class="card-cta">View Details →</div>
+    </div>
+    <div class="card-details" hidden>
+      <ul>
+        <li>Developed a human–robot interactive home companion on Raspberry Pi 4; integrated microphone and touch
+          sensors with the Gemini API for user intent recognition and action execution.</li>
       </ul>
     </div>
   </div>

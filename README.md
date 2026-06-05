@@ -4,12 +4,84 @@
 
 > By [Dean Attali](https://deanattali.com) &middot; [Demo](https://beautifuljekyll.com/)
 
+## Local Preview On Windows
+
+This blog is a Jekyll site. Use the steps below to run it locally on this PC before pushing changes to GitHub Pages.
+
+### 1. Install Ruby
+
+Install **Ruby+Devkit** from [RubyInstaller for Windows](https://rubyinstaller.org/downloads/). Use a Ruby 3.x installer with Devkit.
+
+After installation, close and reopen PowerShell, then check:
+
+```powershell
+ruby -v
+gem -v
+```
+
+If Ruby asks to install MSYS2/Devkit components, run:
+
+```powershell
+ridk install
+```
+
+### 2. Install the blog dependencies
+
+Move to the blog repository and install gems from `Gemfile.lock`.
+
+```powershell
+cd C:\Users\jungs\Desktop\workspace\JungSeong.github.io
+gem install bundler -v 4.0.7
+bundle _4.0.7_ install
+```
+
+### 3. Run the local server
+
+```powershell
+bundle exec jekyll serve --livereload --host 127.0.0.1 --port 4000
+```
+
+Open:
+
+```text
+http://127.0.0.1:4000/
+```
+
+Stop the server with `Ctrl+C`.
+
+### Troubleshooting
+
+- If `ruby` or `bundle` is not recognized, reopen PowerShell after installing RubyInstaller. If it still fails, check that Ruby's `bin` directory is in the Windows `PATH`.
+- If Bundler says `Bundler 4.x.x is running, but your lockfile was generated with 4.0.7`, do not delete `Gemfile.lock` first. Install and run the lockfile Bundler version instead:
+
+```powershell
+gem install bundler -v 4.0.7
+bundle _4.0.7_ install
+```
+
+  Only update the lockfile Bundler version intentionally with `bundle update --bundler`.
+- If port `4000` is already in use, run with another port:
+
+```powershell
+bundle exec jekyll serve --livereload --host 127.0.0.1 --port 4001
+```
+
+- If images or layout look stale, stop the server and clear generated cache folders:
+
+```powershell
+Remove-Item -Recurse -Force .jekyll-cache, _site
+bundle exec jekyll serve --livereload --host 127.0.0.1 --port 4000
+```
+
+- If `wdm` or native gem installation fails on Windows, make sure Ruby was installed with Devkit and run `ridk install` once.
+
 **Beautiful Jekyll** is a ready-to-use template to help you create a beautiful website quickly. Perfect for personal sites, blogs, or simple project websites.  [Check out a demo](https://beautifuljekyll.com) of what you'll get after just two minutes.  You can also look at [my personal website](https://deanattali.com) or [my consulting website](https://attalitech.com) to see it in use, or see [examples of websites](http://beautifuljekyll.com/examples) other people created using this theme.
 
 **If you enjoy Beautiful Jekyll, please consider [supporting me](https://github.com/sponsors/daattali). You'll also gain access to office hours and more features! ❤**
 
 ## Table of contents
 
+- [Local Preview On Windows](#local-preview-on-windows)
 - [Features](#features)
 - [Sponsors 🏆](#sponsors)
 - [**Build your website in 3 steps**](#build-your-website-in-3-steps)
@@ -236,4 +308,3 @@ You can also contribute by becoming an [official sponsor](https://github.com/spo
 This template was not made *entirely* from scratch. I'd like to give special thanks to [Jekyll Now](https://github.com/barryclark/jekyll-now) and [Bootstrap Clean Blog](https://github.com/IronSummitMedia/startbootstrap-clean-blog), from whom I've taken several ideas initially.
 
 I'd also like to thank [Dr. Jekyll's Themes](https://drjekyllthemes.github.io/), [Jekyll Themes](http://jekyllthemes.org/), and another [Jekyll Themes](http://jekyllrc.github.io/jekyllthemes/) for featuring Beautiful Jekyll in their Jekyll theme directories.
-
