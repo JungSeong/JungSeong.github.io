@@ -1,7 +1,9 @@
 ---
 layout: page
 title: Algorithm
+title_ko: Algorithm
 subtitle: PS Solving - LeetCode & BaekJoon
+subtitle_ko: 알고리즘 문제 풀이 - LeetCode & Baekjoon
 ---
 
 <style>
@@ -402,21 +404,21 @@ subtitle: PS Solving - LeetCode & BaekJoon
 
     <!-- LeetCode -->
     <div class="project-card" data-github="https://github.com/JungSeong/Algorithm"
-        data-profile-url="https://leetcode.com/u/jungseong/" data-profile-label="LeetCode"
+        data-profile-url="https://leetcode.com/u/jungseong/" data-profile-label="LeetCode" data-profile-label-ko="LeetCode"
         data-image="/img/algorithm/leetcode.jpg" onclick="openModal(this)">
-        <span class="project-status status-wip">In Progress</span>
+        <span class="project-status status-wip" data-i18n data-en="In Progress" data-ko="진행 중">In Progress</span>
         <div class="card-face">
             <h3>LeetCode</h3>
-            <div class="project-meta">Apr. 2026 – Present ·</div>
+            <div class="project-meta" data-i18n data-en="Apr. 2026 – Present ·" data-ko="2026.04 – 현재 ·">Apr. 2026 – Present ·</div>
             <div class="project-tags">
                 <span class="tag">LeetCode</span>
                 <span class="tag">Problem Solving</span>
             </div>
-            <p class="card-summary">Solved 59+ problems on LeetCode</p>
+            <p class="card-summary" data-i18n data-en="Solved 59+ problems on LeetCode" data-ko="LeetCode 59문제 이상 풀이">Solved 59+ problems on LeetCode</p>
         </div>
         <div class="card-details" hidden>
             <ul>
-                <li>Solved <strong>59+ LeetCode problems</strong> and maintained solutions in the Algorithm repository.
+                <li data-i18n data-i18n-html="true" data-en="Solved <strong>59+ LeetCode problems</strong> and maintained solutions in the Algorithm repository." data-ko="<strong>LeetCode 59문제 이상</strong> 풀이, Algorithm repository 내 solution 관리">Solved <strong>59+ LeetCode problems</strong> and maintained solutions in the Algorithm repository.
                 </li>
             </ul>
         </div>
@@ -424,19 +426,19 @@ subtitle: PS Solving - LeetCode & BaekJoon
 
     <!-- Baekjoon Online Judge -->
     <div class="project-card" data-github="https://github.com/JungSeong/Algorithm" data-image="/img/algorithm/boj.jpg"
-        data-profile-url="https://solved.ac/profile/jungseong#" data-profile-label="Baekjoon" onclick="openModal(this)">
-        <span class="project-status status-done">Done</span>
+        data-profile-url="https://solved.ac/profile/jungseong#" data-profile-label="Baekjoon" data-profile-label-ko="Baekjoon" onclick="openModal(this)">
+        <span class="project-status status-done" data-i18n data-en="Done" data-ko="완료">Done</span>
         <div class="card-face">
             <h3>BOJ</h3>
-            <div class="project-meta">Jun. 2025 – Apr. 2026</div>
+            <div class="project-meta" data-i18n data-en="Jun. 2025 – Apr. 2026" data-ko="2025.06 – 2026.04">Jun. 2025 – Apr. 2026</div>
             <div class="project-tags">
                 <span class="tag-boj-gold">Gold I</span>
             </div>
-            <p class="card-summary">Solved 441 problems on BaekJoon using Python</p>
+            <p class="card-summary" data-i18n data-en="Solved 441 problems on BaekJoon using Python" data-ko="Python으로 Baekjoon 441문제 풀이">Solved 441 problems on BaekJoon using Python</p>
         </div>
         <div class="card-details" hidden>
             <ul>
-                <li>Achieved <strong>Gold I</strong> rank on Baekjoon Online Judge and solved over 430+ problems using
+                <li data-i18n data-i18n-html="true" data-en="Achieved <strong>Gold I</strong> rank on Baekjoon Online Judge and solved over 430+ problems using Python." data-ko="Baekjoon Online Judge <strong>Gold I</strong> rank 달성, Python 기반 430문제 이상 풀이">Achieved <strong>Gold I</strong> rank on Baekjoon Online Judge and solved over 430+ problems using
                     Python.</li>
             </ul>
         </div>
@@ -452,6 +454,7 @@ subtitle: PS Solving - LeetCode & BaekJoon
             const github = card.dataset.github;
             const profileUrl = card.dataset.profileUrl;
             const profileLabel = card.dataset.profileLabel;
+            const profileLabelKo = card.dataset.profileLabelKo;
             const image = card.dataset.image;
 
             document.getElementById('modal-status').innerHTML = status;
@@ -465,9 +468,15 @@ subtitle: PS Solving - LeetCode & BaekJoon
             if (profileUrl) {
                 profileLink.href = profileUrl;
                 profileLink.textContent = profileLabel || 'Profile';
+                profileLink.setAttribute('data-i18n', '');
+                profileLink.setAttribute('data-en', profileLabel || 'Profile');
+                profileLink.setAttribute('data-ko', profileLabelKo || profileLabel || '프로필');
                 profileLink.hidden = false;
             } else {
                 profileLink.removeAttribute('href');
+                profileLink.removeAttribute('data-i18n');
+                profileLink.removeAttribute('data-en');
+                profileLink.removeAttribute('data-ko');
                 profileLink.hidden = true;
             }
 

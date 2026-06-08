@@ -1,7 +1,9 @@
 ---
 layout: page
 title: Retrospective
+title_ko: Retrospective
 subtitle: Reflections on contests and algorithm problem solving
+subtitle_ko: 대회와 알고리즘 문제 풀이 회고
 ---
 
 <style>
@@ -125,9 +127,9 @@ subtitle: Reflections on contests and algorithm problem solving
 
 <!-- ── Filter Tabs ─────────────────────── -->
 <div class="retro-tabs">
-  <div class="retro-tab active" data-filter="all">All</div>
-  <div class="retro-tab" data-filter="contest">Contest</div>
-  <div class="retro-tab" data-filter="algorithm">Algorithm</div>
+  <div class="retro-tab active" data-filter="all" data-i18n data-en="All" data-ko="전체">All</div>
+  <div class="retro-tab" data-filter="contest" data-i18n data-en="Contest" data-ko="대회">Contest</div>
+  <div class="retro-tab" data-filter="algorithm" data-i18n data-en="Algorithm" data-ko="알고리즘">Algorithm</div>
 </div>
 
 <!-- ── Post List ──────────────────────── -->
@@ -140,20 +142,23 @@ subtitle: Reflections on contests and algorithm problem solving
     {% if post.tags contains 'contest' %}
       {% assign badge_class = 'badge-contest' %}
       {% assign badge_label = 'Contest' %}
+      {% assign badge_label_ko = '대회' %}
       {% assign category_key = 'contest' %}
     {% elsif post.tags contains 'algorithm' %}
       {% assign badge_class = 'badge-algorithm' %}
       {% assign badge_label = 'Algorithm' %}
+      {% assign badge_label_ko = '알고리즘' %}
       {% assign category_key = 'algorithm' %}
     {% else %}
       {% assign badge_class = 'badge-contest' %}
       {% assign badge_label = 'etc.' %}
+      {% assign badge_label_ko = '기타' %}
       {% assign category_key = 'all' %}
     {% endif %}
   <li class="retro-item" data-category="{{ category_key }}">
-    <span class="retro-category-badge {{ badge_class }}">{{ badge_label }}</span>
+    <span class="retro-category-badge {{ badge_class }}" data-i18n data-en="{{ badge_label }}" data-ko="{{ badge_label_ko }}">{{ badge_label }}</span>
     <div class="retro-item-header">
-      <a class="retro-item-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <a class="retro-item-title" href="{{ post.url | relative_url }}"{% if post.title_ko %} data-i18n data-en="{{ post.title | strip_html | xml_escape }}" data-ko="{{ post.title_ko | strip_html | xml_escape }}"{% endif %}>{{ post.title }}</a>
       <span class="retro-item-date">{{ post.date | date: "%Y.%m.%d" }}</span>
     </div>
     {% if post.excerpt %}
@@ -164,7 +169,7 @@ subtitle: Reflections on contests and algorithm problem solving
 {% endif %}
 </ul>
 
-<div class="retro-empty" id="retro-empty">작성된 글이 없습니다.</div>
+<div class="retro-empty" id="retro-empty" data-i18n data-en="No posts yet." data-ko="작성된 글이 없습니다.">No posts yet.</div>
 
 <script>
   (function () {

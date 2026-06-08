@@ -1,5 +1,6 @@
-/* Dark mode toggle button */
-.dark-mode-btn {
+/* Navbar utility buttons */
+.dark-mode-btn,
+.language-toggle-btn {
   background: none;
   border: none;
   cursor: pointer;
@@ -13,11 +14,19 @@
   vertical-align: middle;
 }
 
-.dark-mode-btn:hover {
+.language-toggle-btn {
+  min-width: 2rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.dark-mode-btn:hover,
+.language-toggle-btn:hover {
   background: rgba(0, 0, 0, 0.1);
 }
 
-[data-theme="dark"] .dark-mode-btn:hover {
+[data-theme="dark"] .dark-mode-btn:hover,
+[data-theme="dark"] .language-toggle-btn:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 

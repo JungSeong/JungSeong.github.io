@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 'Tag Index'
+title_ko: '태그 인덱스'
 ---
 
 {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
@@ -25,7 +26,7 @@ title: 'Tag Index'
     <div class="post-list">
         {%- for post in site.tags[tag] -%}
             <div class="tag-entry">
-                <a href="{{ post.url | relative_url }}">{{- post.title | strip_html -}}</a>
+                <a href="{{ post.url | relative_url }}"{% if post.title_ko %} data-i18n data-en="{{ post.title | strip_html | xml_escape }}" data-ko="{{ post.title_ko | strip_html | xml_escape }}"{% endif %}>{{- post.title | strip_html -}}</a>
                 <div class="entry-date">
                     <time datetime="{{- post.date | date_to_xmlschema -}}">{{- post.date | date: date_format -}}</time>
                 </div>

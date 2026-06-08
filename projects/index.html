@@ -1,7 +1,9 @@
 ---
 layout: page
 title: Projects
+title_ko: Projects
 subtitle: A collection of projects I have completed or currently working on
+subtitle_ko: 완료했거나 진행 중인 프로젝트 모음
 ---
 
 <style>
@@ -343,175 +345,66 @@ subtitle: A collection of projects I have completed or currently working on
     <div id="modal-details"></div>
     <div class="modal-links">
       <a id="modal-github" href="#" target="_blank">GitHub</a>
-      <a id="modal-docs" href="#" target="_self" hidden>Docs</a>
+      <a id="modal-docs" href="#" target="_self" hidden data-i18n data-en="Docs" data-ko="문서">Docs</a>
     </div>
   </div>
 </div>
 
 <!-- ── Major Projects ─────────────────────── -->
-<div class="project-section-title">Major Projects</div>
+<div class="project-section-title" data-i18n data-en="Major Projects" data-ko="주요 프로젝트">Major Projects</div>
 <div class="project-grid">
   <div class="project-card" data-github="https://github.com/JungSeong/QA-FineTune"
     data-docs="/projects/qa-finetune/" data-image="/img/projects/chatbot.jpg" data-gif="/img/projects/chatbot.gif"
     onclick="openModal(this)">
-    <span class="project-status status-done">Done</span>
+    <span class="project-status status-done" data-i18n data-en="Done" data-ko="완료">Done</span>
     <div class="card-face">
-      <h3>Advanced Q&A Chatbot System for Public Offices</h3>
-      <div class="project-meta">Jan. 2026 – Mar. 2026 · <em>Team Member</em></div>
+      <h3 data-i18n data-en="Public Office QA Chatbot Enhancement System" data-ko="관공서 QA 챗봇 고도화 시스템">Public Office QA Chatbot Enhancement System</h3>
+      <div class="project-meta" data-i18n data-i18n-html="true" data-en="Jan. 20, 2026 – Mar. 30, 2026 · <em>Individual</em> · VS Community" data-ko="2026.01.20 ~ 2026.03.30 · <em>개인</em> · (주)브이에스커뮤니티">Jan. 20, 2026 – Mar. 30, 2026 · <em>Individual</em> · VS Community</div>
       <div class="project-tags">
         <span class="tag">LLM</span>
         <span class="tag">vLLM</span>
         <span class="tag">DeepSpeed</span>
-        <span class="tag">LoRA</span>
         <span class="tag">Docker</span>
         <span class="tag">MCP</span>
+        <span class="tag">SFT</span>
       </div>
-      <p class="card-summary">LLM-based Q&A system fine-tuned for public office inquiries.</p>
-      <div class="card-cta">View Details →</div>
+      <p class="card-summary" data-i18n data-en="LLM project focused on faster training/inference, model-access structure, CoT data generation, and SFT-based instruction tuning." data-ko="추론·훈련 가속, 모델 접근 구조, CoT 데이터 생성, SFT 기반 지시 이해 튜닝 중심의 LLM 프로젝트">LLM project focused on faster training/inference, model-access structure, CoT data generation, and SFT-based instruction tuning.</p>
+      <div class="card-cta" data-i18n data-en="View Details →" data-ko="자세히 보기 →">View Details →</div>
     </div>
     <div class="card-details" hidden>
       <ul>
-        <li>Addressed unstable instruction-following in complex public-service questions by building
-          <strong>Chain-of-Thought golden datasets</strong> and a DeepEval Synthesizer data-generation flow.</li>
-        <li>Reduced inference and training bottlenecks by applying <strong>vLLM, DeepSpeed, SFT, and LoRA</strong> to
-          the fine-tuning pipeline.</li>
-        <li>Containerized the service with Docker Compose, integrated MCP for model access, and deployed trained
-          adapters and tokenizers to Hugging Face Hub.</li>
+        <li data-i18n data-en="Developed a vLLM and DeepSpeed-based inference/training acceleration pipeline to reduce bottlenecks and improve repeated experiment flow." data-ko="추론 및 훈련 병목을 줄이기 위한 vLLM·DeepSpeed 기반 추론·훈련 가속 파이프라인 개발로 반복 실험 흐름 개선">Developed a vLLM and DeepSpeed-based inference/training acceleration pipeline to reduce bottlenecks and improve repeated experiment flow.</li>
+        <li data-i18n data-en="Developed a Docker Compose and Model Context Protocol (MCP)-based model-access structure to organize model-call flow across distributed environments." data-ko="모델 접근 환경이 분산되는 문제를 줄이기 위한 Docker Compose·Model Context Protocol(MCP) 기반 모델 접근 구조 개발로 모델 호출 흐름 정리">Developed a Docker Compose and Model Context Protocol (MCP)-based model-access structure to organize model-call flow across distributed environments.</li>
+        <li data-i18n data-en="Built Chain-of-Thought (CoT) question design and DeepEval Synthesizer-based golden dataset generation flow for complex civil-service inquiry coverage." data-ko="복합적인 상황에서의 민원을 모두 다루기 위해 Chain-of-Thought(CoT) 기반 질의 설계 및 DeepEval Synthesizer 기반 골든 데이터셋 생성 흐름 구축">Built Chain-of-Thought (CoT) question design and DeepEval Synthesizer-based golden dataset generation flow for complex civil-service inquiry coverage.</li>
+        <li data-i18n data-en="Improved SFT-based instruction-following tuning to reduce mismatches between question intent and answer format." data-ko="질의 의도와 답변 형식 불일치를 줄이기 위한 SFT 기반 지시 이해 튜닝 개선">Improved SFT-based instruction-following tuning to reduce mismatches between question intent and answer format.</li>
       </ul>
     </div>
   </div>
 
   <div class="project-card" data-github="https://github.com/addinedu-roscamp-4th/roscamp-repo-2"
     data-image="/img/projects/robodine.png" data-gif="/img/projects/robodine.gif" onclick="openModal(this)">
-    <span class="project-status status-done">Done</span>
+    <span class="project-status status-done" data-i18n data-en="Done" data-ko="완료">Done</span>
     <div class="card-face">
-      <h3>RoboDine: AI-Based Robotic Restaurant Automation Platform</h3>
-      <div class="project-meta">Apr. 2025 – Jun. 2025 · <em>Team Member</em></div>
+      <h3>RoboDine</h3>
+      <div class="project-meta" data-i18n data-i18n-html="true" data-en="Apr. 1, 2025 – Jun. 2, 2025 · <em>Team Member</em>" data-ko="2025.04.01 ~ 2025.06.02 · <em>팀원</em>">Apr. 1, 2025 – Jun. 2, 2025 · <em>Team Member</em></div>
       <div class="project-tags">
+        <span class="tag">Vision</span>
+        <span class="tag">Robotics</span>
         <span class="tag">ROS2</span>
         <span class="tag">YOLO</span>
-        <span class="tag">OpenCV</span>
-        <span class="tag">Mediapipe</span>
+        <span class="tag">LiDAR</span>
       </div>
-      <p class="card-summary">Restaurant robot platform covering arm grasping and obstacle avoidance.</p>
-      <div class="card-cta">View Details →</div>
+      <p class="card-summary" data-i18n data-en="Vision and robotics project covering robot-arm pose estimation, foreign-object detection, and camera/LiDAR-based avoidance logic." data-ko="로봇 팔 자세 추정, 이물질 검출, 카메라·LiDAR 기반 회피 로직 중심의 Vision/Robotics 프로젝트">Vision and robotics project covering robot-arm pose estimation, foreign-object detection, and camera/LiDAR-based avoidance logic.</p>
+      <div class="card-cta" data-i18n data-en="View Details →" data-ko="자세히 보기 →">View Details →</div>
     </div>
     <div class="card-details" hidden>
       <ul>
-        <li>Stabilized noisy 6-DoF object-pose estimates before robot-arm grasping by tuning
-          <strong>YOLOv8-pose</strong>, applying 5-frame averaging, and recovering pose with solvePnP; reduced
-          pose-estimation error by 14%.</li>
-        <li>Connected vision estimates to robot-arm control inputs and implemented foreign-object detection for safer
-          restaurant automation.</li>
-        <li>Built a camera/LiDAR-based obstacle classification and avoidance pipeline as ROS2 topics for mobile-robot
-          operation.</li>
-        <li>Practiced Agile development with Git, Jira, and Confluence in a team of 6.</li>
+        <li data-i18n data-en="Enhanced a robot-arm 6-DoF pose-estimation algorithm to reduce pose-estimation error before object grasping." data-ko="물체 파지 전 자세 추정 오차를 줄이기 위한 로봇 팔 6-DoF 자세 추정 알고리즘 고도화">Enhanced a robot-arm 6-DoF pose-estimation algorithm to reduce pose-estimation error before object grasping.</li>
+        <li data-i18n data-en="Implemented foreign-object detection around the robot arm to reduce risk from unexpected objects." data-ko="이물질로 인한 문제 발생 가능성을 줄이기 위한 로봇 팔 주변 이물질 검출 알고리즘 구현">Implemented foreign-object detection around the robot arm to reduce risk from unexpected objects.</li>
+        <li data-i18n data-en="Implemented object-detection and avoidance logic connecting camera and LiDAR sensor information to mobile-robot movement decisions." data-ko="카메라·LiDAR 센서 정보를 이동 판단에 연결하기 위한 객체 감지 및 회피 로직 구현">Implemented object-detection and avoidance logic connecting camera and LiDAR sensor information to mobile-robot movement decisions.</li>
       </ul>
     </div>
   </div>
-
-</div>
-
-<!-- ── Minor Projects ────────────────────── -->
-<div class="project-section-title">Minor Projects</div>
-<div class="project-grid">
-
-  <div class="project-card" data-github="https://github.com/JungSeong/Research-Program"
-    data-image="/img/projects/detector.jpg" data-gif="/img/projects/detector.gif" onclick="openModal(this)">
-    <span class="project-status status-done">Done</span>
-    <div class="card-face">
-      <h3>One-Stage Object Detector from Scratch</h3>
-      <div class="project-meta">Mar. 2025 – Jun. 2025</div>
-      <div class="project-tags">
-        <span class="tag">TensorFlow</span>
-        <span class="tag">Keras</span>
-        <span class="tag">PyTorch</span>
-        <span class="tag">Pascal VOC</span>
-      </div>
-      <p class="card-summary">Built a One-Stage Detector from scratch; trained and evaluated on Pascal VOC 2012.</p>
-      <div class="card-cta">View Details →</div>
-    </div>
-    <div class="card-details" hidden>
-      <ul>
-        <li>Implemented a One-Stage Detector model from scratch using TensorFlow and PyTorch.</li>
-        <li>Trained and evaluated on the Pascal VOC 2012 dataset.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-card" data-github="https://github.com/JungSeong/Robo" data-image="/img/projects/robo.jpg"
-    data-gif="/img/projects/robo.gif" onclick="openModal(this)">
-    <span class="project-status status-done">Done</span>
-    <div class="card-face">
-      <h3>Robo – Household Companion</h3>
-      <div class="project-meta">Mar. 2025 – May. 2025</div>
-      <div class="project-tags">
-        <span class="tag">Raspberry Pi 4</span>
-        <span class="tag">Gemini API</span>
-        <span class="tag">Python</span>
-      </div>
-      <p class="card-summary">Human–robot interactive home companion on Raspberry Pi 4 using multi-sensors.</p>
-      <div class="card-cta">View Details →</div>
-    </div>
-    <div class="card-details" hidden>
-      <ul>
-        <li>Developed a human–robot interactive home companion on Raspberry Pi 4; integrated microphone and touch
-          sensors with the Gemini API for user intent recognition and action execution.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-card" data-github="https://github.com/JungSeong/AIBAK" data-image="/img/projects/aibak.jpg"
-    data-gif="/img/projects/aibak.gif" onclick="openModal(this)">
-    <span class="project-status status-done">Done</span>
-    <div class="card-face">
-      <h3>AIBAK: AI-Based Children's Book Kiosk Service</h3>
-      <h3><span class="award-badge">Excellence Prize</span></h3>
-      <div class="project-meta">Sep. 2024 – Dec. 2024 · <em>Team Member</em></div>
-      <div class="project-tags">
-        <span class="tag">GPT-4o-mini</span>
-        <span class="tag">LangChain</span>
-        <span class="tag">ElevenLabs</span>
-      </div>
-      <p class="card-summary">AI-driven children's book kiosk with story generation and TTS narration. Excellence Prize
-        at In-Jeju IoT Challenge.</p>
-      <div class="card-cta">View Details →</div>
-    </div>
-    <div class="card-details" hidden>
-      <ul>
-        <li>Implemented <strong>AI-driven story and title generation</strong> using ChatGPT-4o-mini and LangChain.</li>
-        <li>Added <strong>TTS narration</strong> via ElevenLabs API.</li>
-        <li><strong>Awarded Excellence Prize at the 1st In-Jeju IoT Innovation Challenge.</strong></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-card" data-github="https://github.com/JungSeong/RMN-Project"
-    data-image="/img/projects/fer.jpg" data-gif="/img/projects/fer.gif" onclick="openModal(this)">
-    <span class="project-status status-done">Done</span>
-    <div class="card-face">
-      <h3>Facial Expression Recognition Web App</h3>
-      <div class="project-meta">Apr. 2024 – May. 2024 · <em>Team Leader</em></div>
-      <div class="project-tags">
-        <span class="tag">Residual Masking Network</span>
-        <span class="tag">Flask</span>
-        <span class="tag">MySQL</span>
-      </div>
-      <p class="card-summary">Team-led web app for facial expression recognition using Residual Masking Network and
-        Flask.</p>
-      <div class="card-cta">View Details →</div>
-    </div>
-    <div class="card-details" hidden>
-      <ul>
-        <li><strong>Led a team</strong> to build a web-based facial expression recognition app using Residual Masking
-          Network.</li>
-        <li>Developed the <strong>Flask + MySQL backend</strong> and managed the project schedule via
-          <strong>WBS</strong>.
-        </li>
-      </ul>
-    </div>
-  </div>
-
 </div>
 
 <script>

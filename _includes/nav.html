@@ -32,9 +32,9 @@
       {%- endfor -%}
       {% if site.post_search %}
         <li class="nav-item">
-          <a class="nav-link" id="nav-search-link" href="#" title="Search">
+          <a class="nav-link" id="nav-search-link" href="#" title="Search" data-title-en="Search" data-title-ko="검색">
             <span id="nav-search-icon" class="fa fa-search"></span>
-            <span id="nav-search-text">Search</span>
+            <span id="nav-search-text" data-i18n data-en="Search" data-ko="검색">Search</span>
           </a>
         </li>
       {%- endif -%}
@@ -47,6 +47,7 @@
     {% endfor %}
   {% endif %}
 
+  <button id="language-toggle" class="language-toggle-btn" title="한국어로 보기" aria-label="한국어로 보기">한</button>
   <button id="dark-mode-toggle" class="dark-mode-btn" title="Switch to dark mode" aria-label="Switch to dark mode">🌙</button>
 
   {% if site.avatar and page.show-avatar != false %}

@@ -1,7 +1,9 @@
 ---
 layout: page
 title: Contests
+title_ko: Contests
 subtitle: Competition entries — results and key contributions
+subtitle_ko: AI 경진 대회 참여 내역 및 주요 기여
 ---
 
 <style>
@@ -309,7 +311,7 @@ subtitle: Competition entries — results and key contributions
     <div id="modal-details"></div>
     <div class="modal-links">
       <a id="modal-github" href="#" target="_blank">GitHub</a>
-      <a id="modal-docs" href="#" target="_self" hidden>Docs</a>
+      <a id="modal-docs" href="#" target="_self" hidden data-i18n data-en="Docs" data-ko="문서">Docs</a>
     </div>
   </div>
 </div>
@@ -321,28 +323,30 @@ subtitle: Competition entries — results and key contributions
   <div class="project-card" data-github="https://github.com/JungSeong/AIC_Sejong"
     data-docs="/contests/aic-sejong/" data-image="/img/contests/aic.jpg" data-gif="/img/contests/aic.gif"
     onclick="openModal(this)">
-    <span class="project-status status-done">Done</span>
+    <span class="project-status status-done" data-i18n data-en="Done" data-ko="완료">Done</span>
     <div class="card-face">
-      <h3>AI for Industry Challenge</h3>
-      <div class="project-meta">Apr. 2026 – May. 2026 · <em>Team Leader</em></div>
+      <h3 data-i18n data-i18n-html="true" data-en="AI for Industry Challenge <span class=&quot;award-badge&quot;>70 / 162</span>" data-ko="AI for Industry Challenge <span class=&quot;award-badge&quot;>162팀 중 70등</span>">AI for Industry Challenge <span class="award-badge">70 / 162</span></h3>
+      <div class="project-meta" data-i18n data-i18n-html="true" data-en="Apr. 1, 2026 – May. 15, 2026 · Intrinsic &amp; Open Robotics · <em>Team Leader</em>" data-ko="2026.04.01 ~ 2026.05.15 · Intrinsic 및 Open Robotics · <em>팀장</em>">Apr. 1, 2026 – May. 15, 2026 · Intrinsic & Open Robotics · <em>Team Leader</em></div>
       <div class="project-tags">
-        <span class="tag">PyTorch</span>
+        <span class="tag">Multimodal</span>
+        <span class="tag">Robotics</span>
         <span class="tag">ROS2</span>
         <span class="tag">Gazebo</span>
         <span class="tag">YOLO</span>
-        <span class="tag">OpenCV</span>
+        <span class="tag">F/T Sensor</span>
       </div>
-      <p class="card-summary">Built ROS2 and Gazebo pipelines for UR5e cable-port insertion experiments.</p>
-      <div class="card-cta">View Details →</div>
+      <p class="card-summary" data-i18n data-en="UR5e cable-port insertion project covering staged ROS 2 motion policy, Gazebo data collection, vision-based port localization, and retry logic." data-ko="UR5e 케이블 포트 삽입을 위한 ROS 2 단계적 모션 정책, Gazebo 데이터 수집, 비전 기반 포트 위치 추정, 재시도 로직 개발">UR5e cable-port insertion project covering staged ROS 2 motion policy, Gazebo data collection, vision-based port localization, and retry logic.</p>
+      <div class="card-cta" data-i18n data-en="View Details →" data-ko="자세히 보기 →">View Details →</div>
     </div>
     <div class="card-details" hidden>
       <ul>
-        <li>Developed a ROS2 staged motion-planning policy node for UR5e cable-port peg-in-hole insertion.</li>
-        <li>Built a Gazebo-based automatic data-collection node to reduce repeated experiment bottlenecks.</li>
-        <li>Integrated YOLO port recognition, multiview/stereo triangulation, and Vision/F/T sensor retry logic for
-          port approach and insertion stabilization.</li>
-        <li>Managed GitHub and Hugging Face Hub artifacts and coordinated teammate recruiting, schedule, and role
-          assignment as team leader.</li>
+        <li data-i18n data-en="Developed a ROS 2-based staged motion-planning policy node for UR5e cable-port peg-in-hole insertion." data-ko="UR5e 로봇의 케이블 포트 삽입(Peg-in-hole)을 위한 ROS 2 기반 단계적 모션 플래닝 정책 노드 개발">Developed a ROS 2-based staged motion-planning policy node for UR5e cable-port peg-in-hole insertion.</li>
+        <li data-i18n data-en="Tuned stiffness/damping parameters to stabilize contact response during insertion." data-ko="삽입 중 접촉 반응을 안정화하기 위한 stiffness/damping(강성·감쇠) 파라미터 튜닝">Tuned stiffness/damping parameters to stabilize contact response during insertion.</li>
+        <li data-i18n data-en="Built a Gazebo automatic data-collection node and headless execution, initialization wait, ROS-Gazebo bridge, and stale-process cleanup pipeline to reduce repeated experiment bottlenecks." data-ko="반복 실험 데이터 수집 병목을 줄이기 위한 Gazebo 자동 수집 노드 및 headless 실행·초기화 대기·ROS-Gazebo bridge·잔존 프로세스 정리 파이프라인 구축">Built a Gazebo automatic data-collection node and headless execution, initialization wait, ROS-Gazebo bridge, and stale-process cleanup pipeline to reduce repeated experiment bottlenecks.</li>
+        <li data-i18n data-en="Integrated YOLO port recognition, multiview/stereo triangulation, and yaw/XYZ alignment logic to respond to port-position and approach-angle changes." data-ko="포트 위치·접근 각도 변화에 대응하기 위한 YOLO 포트 인식, 멀티뷰·스테레오 삼각측량, yaw/XYZ 정렬 로직 통합">Integrated YOLO port recognition, multiview/stereo triangulation, and yaw/XYZ alignment logic to respond to port-position and approach-angle changes.</li>
+        <li data-i18n data-en="Developed Vision and F/T sensor-based force baseline, offset prediction, and retry logic for insertion-failure recovery." data-ko="삽입 실패 재시도를 위한 Vision 및 F/T 센서 기반 force baseline·offset 예측·재시도 로직 개발">Developed Vision and F/T sensor-based force baseline, offset prediction, and retry logic for insertion-failure recovery.</li>
+        <li data-i18n data-en="Managed GitHub, Hugging Face Hub, and Notion to organize distributed experiment artifacts and collaboration flow." data-ko="분산된 실험 산출물과 협업 흐름을 정리하기 위한 GitHub/Hugging Face Hub/Notion 관리">Managed GitHub, Hugging Face Hub, and Notion to organize distributed experiment artifacts and collaboration flow.</li>
+        <li data-i18n data-en="Handled teammate recruiting, schedule and role coordination, and experiment-flow documentation." data-ko="팀원 구인, 일정·역할 조율 및 실험 흐름 문서화">Handled teammate recruiting, schedule and role coordination, and experiment-flow documentation.</li>
       </ul>
     </div>
   </div>
@@ -351,26 +355,27 @@ subtitle: Competition entries — results and key contributions
   <div class="project-card" data-github="https://github.com/whyz-dev/structure-stability"
     data-docs="/contests/structure-stability/" data-image="/img/contests/structural-stability.jpg"
     data-gif="/img/contests/structural-stability.gif" onclick="openModal(this)">
-    <span class="project-status status-done">Done</span>
+    <span class="project-status status-done" data-i18n data-en="Done" data-ko="완료">Done</span>
     <div class="card-face">
-      <h3>Structural Stability Physical Reasoning AI <span class="award-badge">Top 13.6%</span></h3>
-      <div class="project-meta">Mar. 2026 · <em>Team Member</em></div>
+      <h3 data-i18n data-i18n-html="true" data-en="Structural Stability Physical Reasoning AI <span class=&quot;award-badge&quot;>Top 13.6%</span>" data-ko="구조물 안정성 물리 추론 AI 경진대회 <span class=&quot;award-badge&quot;>상위 13.6%</span>">Structural Stability Physical Reasoning AI <span class="award-badge">Top 13.6%</span></h3>
+      <div class="project-meta" data-i18n data-i18n-html="true" data-en="Mar. 1, 2026 – Mar. 30, 2026 · DACON · <em>Team Member</em>" data-ko="2026.03.01 ~ 2026.03.30 · 주관: 데이콘 · <em>팀원</em>">Mar. 1, 2026 – Mar. 30, 2026 · DACON · <em>Team Member</em></div>
       <div class="project-tags">
+        <span class="tag">Vision</span>
+        <span class="tag">Robotics</span>
         <span class="tag">PyTorch</span>
-        <span class="tag">VideoMAE</span>
+        <span class="tag">Cross-Attention</span>
         <span class="tag">Knowledge Distillation</span>
       </div>
-      <p class="card-summary">Video-based physical reasoning model; ranked 66th out of 484 teams.</p>
-      <div class="card-cta">View Details →</div>
+      <p class="card-summary" data-i18n data-en="Vision/Robotics competition project using image/video augmentation, multiview cross-attention, knowledge distillation, and ensemble calibration." data-ko="이미지·영상 증강, 멀티뷰 Cross-Attention, Knowledge Distillation, ensemble calibration 기반 Vision/Robotics 대회 프로젝트">Vision/Robotics competition project using image/video augmentation, multiview cross-attention, knowledge distillation, and ensemble calibration.</p>
+      <div class="card-cta" data-i18n data-en="View Details →" data-ko="자세히 보기 →">View Details →</div>
     </div>
     <div class="card-details" hidden>
       <ul>
-        <li>Reworked the data-augmentation pipeline after identifying failure cases in video-based stability
-          prediction.</li>
-        <li>Built VideoMAE feature-extraction and regularization experiments to improve generalization.</li>
-        <li>Ran ablation and sweep experiments across architecture, learning rate, and weight decay to select stable
-          training settings.</li>
-        <li><strong>Ranked 66th out of 484 teams (top 13.6%).</strong></li>
+        <li data-i18n data-en="Implemented image/video augmentation and brightness/rotation preprocessing pipelines to increase dataset diversity." data-ko="데이터 세트 다양성을 높이기 위한 이미지·영상 증강과 밝기·회전 전처리 파이프라인 구현">Implemented image/video augmentation and brightness/rotation preprocessing pipelines to increase dataset diversity.</li>
+        <li data-i18n data-en="Implemented a multiview Bidirectional Cross-Attention model and preprocessing code to learn multiple structure viewpoints together." data-ko="여러 시점의 구조물 이미지를 함께 학습하기 위한 멀티뷰 Bidirectional Cross-Attention 모델 및 전처리 코드 구현">Implemented a multiview Bidirectional Cross-Attention model and preprocessing code to learn multiple structure viewpoints together.</li>
+        <li data-i18n data-en="Compared key training conditions including backbone, epoch, and weight decay to secure stable physical-reasoning model performance." data-ko="물리 추론 모델의 안정적인 성능 확보를 위해 Backbone·epoch·weight decay 등 주요 학습 조건 비교">Compared key training conditions including backbone, epoch, and weight decay to secure stable physical-reasoning model performance.</li>
+        <li data-i18n data-en="Configured learning stabilization with Knowledge Distillation, teacher regularization, mixup, EMA, and early stopping to transfer existing-model predictions and reduce overfitting." data-ko="기존 모델의 예측 지식을 새 모델 학습에 활용하는 Knowledge Distillation과 과적합 완화를 위한 teacher regularization·mixup·EMA·early stopping 기반 학습 안정화 구성">Configured learning stabilization with Knowledge Distillation, teacher regularization, mixup, EMA, and early stopping to transfer existing-model predictions and reduce overfitting.</li>
+        <li data-i18n data-en="Recorded 66th place out of 484 teams (top 13.6%) through dev logloss analysis, temperature scaling, and ensemble weight search." data-ko="검증 데이터 기준 성능 비교를 위한 dev logloss 분석, 예측 확률 보정을 위한 temperature scaling, 여러 모델 결과를 결합하는 ensemble weight search로 484팀 중 66등(상위 13.6%) 기록">Recorded 66th place out of 484 teams (top 13.6%) through dev logloss analysis, temperature scaling, and ensemble weight search.</li>
       </ul>
     </div>
   </div>

@@ -23,13 +23,13 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="{{ include.type }}-heading">
-          <h1>{% if page.title %}{{ page.title | strip_html }}{% else %}<br/>{% endif %}</h1>
+          <h1{% if page.title_ko %} data-i18n data-en="{{ page.title | strip_html | xml_escape }}" data-ko="{{ page.title_ko | strip_html | xml_escape }}"{% endif %}>{% if page.title %}{{ page.title | strip_html }}{% else %}<br/>{% endif %}</h1>
           {% if page.subtitle %}
             {% if include.type == "page" %}
               <hr class="small">
-              <span class="{{ include.type }}-subheading">{{ page.subtitle | strip_html }}</span>
+              <span class="{{ include.type }}-subheading"{% if page.subtitle_ko %} data-i18n data-en="{{ page.subtitle | strip_html | xml_escape }}" data-ko="{{ page.subtitle_ko | strip_html | xml_escape }}"{% endif %}>{{ page.subtitle | strip_html }}</span>
             {% else %}
-              <h2 class="{{ include.type }}-subheading">{{ page.subtitle | strip_html }}</h2>
+              <h2 class="{{ include.type }}-subheading"{% if page.subtitle_ko %} data-i18n data-en="{{ page.subtitle | strip_html | xml_escape }}" data-ko="{{ page.subtitle_ko | strip_html | xml_escape }}"{% endif %}>{{ page.subtitle | strip_html }}</h2>
             {% endif %}
           {% endif %}
           
