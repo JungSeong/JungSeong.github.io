@@ -350,39 +350,37 @@ subtitle_ko: 완료했거나 진행 중인 프로젝트 모음
   </div>
 </div>
 
-<!-- ── Major Projects ─────────────────────── -->
+<!-- ── Projects ─────────────────────── -->
 <div class="project-section-title" data-i18n data-en="Major Projects" data-ko="주요 프로젝트">Major Projects</div>
 <div class="project-grid">
   <div class="project-card" data-github="https://github.com/JungSeong/QA-FineTune"
-    data-docs="/projects/qa-finetune/" data-image="/img/projects/chatbot.jpg" data-gif="/img/projects/chatbot.gif"
+    data-image="/img/projects/chatbot.jpg" data-gif="/img/projects/chatbot.gif"
     onclick="openModal(this)">
     <span class="project-status status-done" data-i18n data-en="Done" data-ko="완료">Done</span>
     <div class="card-face">
-      <h3 data-i18n data-en="Public Office QA Chatbot Enhancement System" data-ko="관공서 QA 챗봇 고도화 시스템">Public Office QA Chatbot Enhancement System</h3>
+      <h3 data-i18n data-en="QA-FineTune Project" data-ko="QA-FineTune Project">QA-FineTune Project</h3>
       <div class="project-meta" data-i18n data-i18n-html="true" data-en="Jan. 20, 2026 – Mar. 30, 2026 · <em>Individual</em> · VS Community" data-ko="2026.01.20 ~ 2026.03.30 · <em>개인</em> · (주)브이에스커뮤니티">Jan. 20, 2026 – Mar. 30, 2026 · <em>Individual</em> · VS Community</div>
       <div class="project-tags">
         <span class="tag">LLM</span>
         <span class="tag">vLLM</span>
-        <span class="tag">DeepSpeed</span>
         <span class="tag">Docker</span>
         <span class="tag">MCP</span>
         <span class="tag">SFT</span>
       </div>
-      <p class="card-summary" data-i18n data-en="LLM project focused on faster training/inference, model-access structure, CoT data generation, and SFT-based instruction tuning." data-ko="추론·훈련 가속, 모델 접근 구조, CoT 데이터 생성, SFT 기반 지시 이해 튜닝 중심의 LLM 프로젝트">LLM project focused on faster training/inference, model-access structure, CoT data generation, and SFT-based instruction tuning.</p>
+      <p class="card-summary" data-i18n data-en="LLM chatbot project that introduced MCP-based model calls and a vLLM serving pipeline, then used CoT and DeepEval Synthesizer golden data plus SFT to improve benchmark performance by up to 22% and response speed by 66%." data-ko="MCP 기반 모델 호출 인터페이스와 vLLM 서빙 파이프라인을 도입하고, CoT·DeepEval Synthesizer 골든 데이터셋 및 SFT로 벤치마크 성능 최대 22% 및 응답 속도 66% 개선">LLM chatbot project that introduced MCP-based model calls and a vLLM serving pipeline, then used CoT and DeepEval Synthesizer golden data plus SFT to improve benchmark performance by up to 22% and response speed by 66%.</p>
       <div class="card-cta" data-i18n data-en="View Details →" data-ko="자세히 보기 →">View Details →</div>
     </div>
     <div class="card-details" hidden>
       <ul>
-        <li data-i18n data-en="Developed a vLLM and DeepSpeed-based inference/training acceleration pipeline to reduce bottlenecks and improve repeated experiment flow." data-ko="추론 및 훈련 병목을 줄이기 위한 vLLM·DeepSpeed 기반 추론·훈련 가속 파이프라인 개발로 반복 실험 흐름 개선">Developed a vLLM and DeepSpeed-based inference/training acceleration pipeline to reduce bottlenecks and improve repeated experiment flow.</li>
-        <li data-i18n data-en="Developed a Docker Compose and Model Context Protocol (MCP)-based model-access structure to organize model-call flow across distributed environments." data-ko="모델 접근 환경이 분산되는 문제를 줄이기 위한 Docker Compose·Model Context Protocol(MCP) 기반 모델 접근 구조 개발로 모델 호출 흐름 정리">Developed a Docker Compose and Model Context Protocol (MCP)-based model-access structure to organize model-call flow across distributed environments.</li>
-        <li data-i18n data-en="Built Chain-of-Thought (CoT) question design and DeepEval Synthesizer-based golden dataset generation flow for complex civil-service inquiry coverage." data-ko="복합적인 상황에서의 민원을 모두 다루기 위해 Chain-of-Thought(CoT) 기반 질의 설계 및 DeepEval Synthesizer 기반 골든 데이터셋 생성 흐름 구축">Built Chain-of-Thought (CoT) question design and DeepEval Synthesizer-based golden dataset generation flow for complex civil-service inquiry coverage.</li>
-        <li data-i18n data-en="Improved SFT-based instruction-following tuning to reduce mismatches between question intent and answer format." data-ko="질의 의도와 답변 형식 불일치를 줄이기 위한 SFT 기반 지시 이해 튜닝 개선">Improved SFT-based instruction-following tuning to reduce mismatches between question intent and answer format.</li>
+        <li data-i18n data-en="Provided a chatbot idea to VS Community." data-ko="(주)브이에스커뮤니티에 챗봇 아이디어 제공">Provided a chatbot idea to VS Community.</li>
+        <li data-i18n data-en="Introduced a Model-Context-Protocol (MCP)-based model invocation interface and a vLLM serving pipeline to separate model-specific runtime dependencies and reduce response-latency bottlenecks through asynchronous parallel inference." data-ko="Model-Context-Protocol(MCP) 기반 모델 호출 인터페이스와 vLLM 서빙 파이프라인을 도입하여 모델별 실행 환경 의존성을 분리하고, 비동기 병렬 추론을 통해 응답 지연 병목 완화">Introduced a Model-Context-Protocol (MCP)-based model invocation interface and a vLLM serving pipeline to separate model-specific runtime dependencies and reduce response-latency bottlenecks through asynchronous parallel inference.</li>
+        <li data-i18n data-en="Built a Chain-of-Thought (CoT) and DeepEval Synthesizer-based golden dataset for complex query scenarios, then applied Supervised Fine Tuning (SFT) to reduce mismatches in question-answer formatting, improving benchmark performance by up to 22% and response speed by 66%." data-ko="복합적인 질의 상황을 다루기 위한 Chain-of-Thought(CoT) 및 DeepEval Synthesizer 기반 골든 데이터셋 구축, 질의-응답 답변 형식 불일치를 줄이기 위한 Supervised Fine Tuning(SFT)로 벤치마크 성능 최대 22% 및 응답 속도 66% 개선">Built a Chain-of-Thought (CoT) and DeepEval Synthesizer-based golden dataset for complex query scenarios, then applied Supervised Fine Tuning (SFT) to reduce mismatches in question-answer formatting, improving benchmark performance by up to 22% and response speed by 66%.</li>
       </ul>
     </div>
   </div>
 
   <div class="project-card" data-github="https://github.com/addinedu-roscamp-4th/roscamp-repo-2"
-    data-image="/img/projects/robodine.png" data-gif="/img/projects/robodine.gif" onclick="openModal(this)">
+    data-docs="/projects/robodine/" data-image="/img/projects/robodine.png" data-gif="/img/projects/robodine.gif" onclick="openModal(this)">
     <span class="project-status status-done" data-i18n data-en="Done" data-ko="완료">Done</span>
     <div class="card-face">
       <h3>RoboDine</h3>
@@ -392,16 +390,16 @@ subtitle_ko: 완료했거나 진행 중인 프로젝트 모음
         <span class="tag">Robotics</span>
         <span class="tag">ROS2</span>
         <span class="tag">YOLO</span>
-        <span class="tag">LiDAR</span>
+        <span class="tag">DBSCAN</span>
       </div>
-      <p class="card-summary" data-i18n data-en="Vision and robotics project covering robot-arm pose estimation, foreign-object detection, and camera/LiDAR-based avoidance logic." data-ko="로봇 팔 자세 추정, 이물질 검출, 카메라·LiDAR 기반 회피 로직 중심의 Vision/Robotics 프로젝트">Vision and robotics project covering robot-arm pose estimation, foreign-object detection, and camera/LiDAR-based avoidance logic.</p>
+      <p class="card-summary" data-i18n data-en="Vision and robotics project that improved 6-DoF pose-estimation accuracy by 14% with YOLO pose training, implemented Hough Circles and DBSCAN-based foreign-object logic, and collaborated through GitHub, Jira, and Confluence in an Agile workflow." data-ko="YOLO pose 모델 학습으로 6-DoF 자세 추정 정확도 14% 개선, Hough Circles/DBSCAN 기반 이물질 문제 대응 로직 구현, GitHub/JiRA/Confluence를 사용한 Agile 협업 수행">Vision and robotics project that improved 6-DoF pose-estimation accuracy by 14% with YOLO pose training, implemented Hough Circles and DBSCAN-based foreign-object logic, and collaborated through GitHub, Jira, and Confluence in an Agile workflow.</p>
       <div class="card-cta" data-i18n data-en="View Details →" data-ko="자세히 보기 →">View Details →</div>
     </div>
     <div class="card-details" hidden>
       <ul>
-        <li data-i18n data-en="Enhanced a robot-arm 6-DoF pose-estimation algorithm to reduce pose-estimation error before object grasping." data-ko="물체 파지 전 자세 추정 오차를 줄이기 위한 로봇 팔 6-DoF 자세 추정 알고리즘 고도화">Enhanced a robot-arm 6-DoF pose-estimation algorithm to reduce pose-estimation error before object grasping.</li>
-        <li data-i18n data-en="Implemented foreign-object detection around the robot arm to reduce risk from unexpected objects." data-ko="이물질로 인한 문제 발생 가능성을 줄이기 위한 로봇 팔 주변 이물질 검출 알고리즘 구현">Implemented foreign-object detection around the robot arm to reduce risk from unexpected objects.</li>
-        <li data-i18n data-en="Implemented object-detection and avoidance logic connecting camera and LiDAR sensor information to mobile-robot movement decisions." data-ko="카메라·LiDAR 센서 정보를 이동 판단에 연결하기 위한 객체 감지 및 회피 로직 구현">Implemented object-detection and avoidance logic connecting camera and LiDAR sensor information to mobile-robot movement decisions.</li>
+        <li data-i18n data-en="Trained a YOLO pose model with data preprocessing and augmentation to reduce pre-grasp pose-estimation errors for a robot arm with a monocular 2D camera, improving 6-DoF pose-estimation accuracy by 14%." data-ko="단안 2D 카메라가 달린 로봇팔의 물체 파지 전 자세 추정 오차를 줄이기 위한 데이터 전처리 및 증강 기법 적용한 YOLO pose 모델 학습, 6-DoF 자세 추정 정확도 14% 개선">Trained a YOLO pose model with data preprocessing and augmentation to reduce pre-grasp pose-estimation errors for a robot arm with a monocular 2D camera, improving 6-DoF pose-estimation accuracy by 14%.</li>
+        <li data-i18n data-en="Implemented Hough Circles and DBSCAN-based logic to prepare for scenarios where foreign objects cause issues in the loading area." data-ko="적재 공간에 이물질로 인한 문제 발생 시나리오 대비를 위한 Hough Circles/DBSCAN 알고리즘 기반 로직 구현">Implemented Hough Circles and DBSCAN-based logic to prepare for scenarios where foreign objects cause issues in the loading area.</li>
+        <li data-i18n data-en="Collaborated through GitHub, Jira, and Confluence while following an Agile development process." data-ko="GitHub/JiRA/Confluence를 사용한 협업 및 Agile 방식의 개발 수행">Collaborated through GitHub, Jira, and Confluence while following an Agile development process.</li>
       </ul>
     </div>
   </div>
