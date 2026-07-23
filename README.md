@@ -8,32 +8,7 @@ Portfolio and project-documentation hub for Robotics, CV, LLM.
 
 ## Documentation
 
-The site is used as an external documentation surface for selected repositories, similar to README links such as `Documentation`, `Getting Started`, or `API Docs`.
-
-| Project | Live docs | Repository |
-| --- | --- | --- |
-| Advanced Q&A Chatbot System | [Documentation](https://jungseong.github.io/projects/qa-finetune/) | [QA-FineTune](https://github.com/JungSeong/QA-FineTune) |
-
-| Contest | Live docs | Repository |
-| --- | --- | --- |
-| AI for Industry Challenge | [Documentation](https://jungseong.github.io/contests/aic-sejong/) | [AIC_Sejong](https://github.com/JungSeong/AIC_Sejong) |
-| Structural Stability Physical Reasoning AI | [Documentation](https://jungseong.github.io/contests/structure-stability/) | [structure-stability](https://github.com/whyz-dev/structure-stability) |
-
-## README Link Pattern
-
-Use a compact README in each source repository, then send detailed setup and execution notes to this Pages site.
-
-```markdown
-# Project Name
-
-[Documentation](https://jungseong.github.io/projects/project-slug/)
-
-## Getting Started
-
-- [Installation](https://jungseong.github.io/projects/project-slug/#getting-started)
-- [Architecture](https://jungseong.github.io/projects/project-slug/#architecture)
-- [API Reference](https://jungseong.github.io/projects/project-slug/#api-reference)
-```
+Dedicated docs pages for QA-FineTune, AI for Industry Challenge, and Structural Stability Physical Reasoning AI have been removed. Their portfolio cards remain in the project and contest indexes without docs links.
 
 ## Local Preview On Windows
 
@@ -69,11 +44,8 @@ JungSeong.github.io/
 ├── algorithm/              # Algorithm notes
 ├── contests/               # Contest records
 │   ├── index.html
-│   ├── aic-sejong/
-│   └── structure-stability/
 ├── projects/               # Portfolio cards and project documentation
 │   ├── index.html
-│   └── qa-finetune/
 ├── retrospective/          # Retrospective posts
 ├── img/projects/           # Static previews and GIF demos
 └── _config.yml             # Jekyll site config
